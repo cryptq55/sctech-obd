@@ -190,4 +190,7 @@
     <string name="log_dir_no_app">Файловый менеджер не найден — путь, скопирован в буфер обмена</string>
     <string name="theme_mode">Тема</string>
     <string name="theme_mode_description">Настройте светлую или тёмную тему оформления, или оставьте как в системе</string>
+    <string name="no_paired_devices">Не найдено подключенных устройств. Сначала подключите устройство в настройках Bluetooth.</string>
+    <string name="no_ble_devices_found">Устройства поблизости не найдены.</string>
+    <string name="no_usb_devices_found">USB-устройств не найдено.</string>
 </resources>
