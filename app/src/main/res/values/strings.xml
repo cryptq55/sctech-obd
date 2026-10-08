@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TODO: kendi uygulama adınla değiştir -->
+    <string name="app_name">SCTech OBD</string>
+
+    <!-- Navigation / menu -->
+    <string name="tab_home">Ana Sayfa</string>
+    <string name="tab_dtc">Arızalar</string>
+    <string name="tab_vehicle">Araç</string>
+    <string name="theme_title">Görünüm</string>
+    <string name="theme_system">Sistem ayarı</string>
+    <string name="theme_light">Gündüz (açık)</string>
+    <string name="theme_dark">Gece (koyu)</string>
+
+    <!-- Status pill (top bar) -->
+    <string name="pill_disconnected">Bağlı değil</string>
+    <string name="pill_connecting">Bağlanıyor</string>
+    <string name="pill_searching">Araç aranıyor</string>
+    <string name="pill_ready">Bağlı</string>
+    <string name="pill_demo">Demo</string>
+    <string name="pill_no_response">Yanıt yok</string>
+    <string name="pill_error">Hata</string>
+
+    <!-- Actions -->
+    <string name="action_connect">Adaptöre bağlan</string>
+    <string name="action_demo">Demo modu</string>
+    <string name="action_disconnect">Bağlantıyı kes</string>
+    <string name="action_cancel">Vazgeç</string>
+
+    <!-- Connection panel -->
+    <string name="eyebrow_vehicle_link">Araç bağlantısı</string>
+    <string name="status_disconnected">Bağlı değil</string>
+    <string name="status_disconnected_sub">ELM327 Bluetooth adaptörü</string>
+    <string name="status_disconnected_hint">Adaptörü aracın OBD soketine (genelde direksiyonun altında) tak, kontağı aç ve bağlan.</string>
+    <string name="status_connecting">Bağlanıyor</string>
+    <string name="progress_connecting">Adaptöre bağlanılıyor…</string>
+    <string name="status_connected">Bağlı</string>
+    <string name="status_ready">Hazır</string>
+    <string name="status_demo">Demo modu · sanal araç</string>
+    <string name="status_connect_failed">Bağlanamadı</string>
+    <string name="status_connection_lost">Bağlantı koptu</string>
+    <string name="status_failed_sub">Adaptöre ulaşılamıyor</string>
+    <string name="status_failed_hint">Adaptörün telefonla eşleştirildiğinden (PIN genelde 1234 veya 0000), aracın kontağının açık olduğundan ve başka bir uygulamanın adaptöre bağlı olmadığından emin ol.</string>
+
+    <string name="ecu_idle">Adaptör bekleniyor…</string>
+    <string name="ecu_initializing">Adaptör hazırlanıyor…</string>
+    <string name="ecu_searching">Araç beyni aranıyor… (ilk bağlantıda 10–20 sn sürebilir)</string>
+    <string name="ecu_ready">Araç hazır</string>
+    <string name="ecu_no_response">Araç yanıt vermiyor. Kontağın açık olduğundan emin ol; bazı araçlarda motorun çalışıyor olması gerekir.</string>
+    <string name="ecu_error">İletişim hatası. Bağlantıyı kesip tekrar dene.</string>
+
+    <string name="hint_connect_first">Önce Ana Sayfa\'dan araca bağlan.</string>
+    <string name="hint_waiting_for_ecu">Araç beyniyle iletişim kuruluyor, lütfen bekle…</string>
+
+    <!-- Check engine light -->
+    <string name="mil_on">Arıza lambası yanıyor</string>
+    <string name="mil_off">Arıza lambası sönük</string>
+    <string name="mil_unknown">Arıza lambası durumu okunuyor</string>
+    <string name="mil_codes_reported">Araç %1$d kayıtlı arıza kodu bildiriyor</string>
+    <string name="mil_check_codes">Arıza kodlarını görmek için dokun</string>
+
+    <!-- Live data -->
+    <string name="live_data_title">Canlı veri</string>
+    <string name="gauge_rpm">Motor devri</string>
+    <string name="gauge_speed">Hız</string>
+    <string name="gauge_coolant">Motor suyu</string>
+    <string name="gauge_voltage">Akü voltajı</string>
+    <string name="unit_rpm">dev/dk</string>
+    <string name="unit_speed">km/sa</string>
+    <string name="unit_celsius">°C</string>
+    <string name="unit_volt">V</string>
+
+    <!-- Device picker -->
+    <string name="picker_title">Adaptör seç</string>
+    <string name="picker_no_bluetooth">Bu cihazda Bluetooth yok.</string>
+    <string name="picker_permission_rationale">Eşleştirilmiş OBD adaptörünü bulup bağlanabilmek için \"Yakındaki cihazlar\" iznine ihtiyaç var.</string>
+    <string name="picker_grant_permission">İzin ver</string>
+    <string name="picker_bluetooth_off">Bluetooth kapalı.</string>
+    <string name="picker_enable_bluetooth">Bluetooth\'u aç</string>
+    <string name="picker_no_paired">Eşleştirilmiş cihaz bulunamadı.</string>
+    <string name="picker_last_used">Son kullanılan</string>
+    <string name="picker_likely_obd">OBD adaptörü olabilir</string>
+    <string name="picker_pairing_hint">Adaptörün listede yok mu? Önce telefonun Bluetooth ayarlarından eşleştir. Adaptör adı genelde \"OBDII\", \"OBD2\" veya \"V-LINK\"; PIN genelde 1234 veya 0000.</string>
+    <string name="picker_open_settings">Bluetooth ayarlarını aç</string>
+
+    <!-- Trouble codes -->
+    <string name="eyebrow_trouble_codes">Arıza kodları</string>
+    <string name="dtc_not_read">Henüz okunmadı</string>
+    <string name="dtc_read">Arıza kodlarını oku</string>
+    <string name="dtc_read_again">Tekrar oku</string>
+    <string name="dtc_reading">Okunuyor</string>
+    <string name="dtc_reading_progress">Kayıtlı, bekleyen ve kalıcı kodlar okunuyor…</string>
+    <string name="dtc_found_sub">arıza kodu bulundu</string>
+    <string name="dtc_none_big">Temiz</string>
+    <string name="dtc_none_body">Kayıtlı, bekleyen veya kalıcı arıza kodu yok</string>
+    <string name="dtc_causes">Olası sebepler</string>
+    <string name="dtc_actions">Ne yapmalı?</string>
+    <string name="dtc_no_details">Ayrıntılı Türkçe açıklama yakında eklenecek.</string>
+    <string name="dtc_clear">Arıza kodlarını sil</string>
+
+    <string name="dtc_kind_stored">KAYITLI</string>
+    <string name="dtc_kind_pending">BEKLEYEN</string>
+    <string name="dtc_kind_permanent">KALICI</string>
+    <string name="dtc_kind_stored_info">Kayıtlı kod: Arıza kesinleşmiş; arıza lambası yanıyor olabilir.</string>
+    <string name="dtc_kind_pending_info">Bekleyen kod: Araç bir sorun gördü ama henüz kesinleşmedi. Sorun tekrarlarsa kayıtlı koda dönüşür ve arıza lambası yanar.</string>
+    <string name="dtc_kind_permanent_info">Kalıcı kod: Cihazla silinemez. Sorun giderilip araç kendi testlerini tamamlayınca kendiliğinden kalkar.</string>
+
+    <string name="severity_low">Düşük önem</string>
+    <string name="severity_medium">Orta önem</string>
+    <string name="severity_high">Yüksek önem</string>
+    <string name="drivable_yes">dikkatli sürülebilir</string>
+    <string name="drivable_no">sürüşe devam etme</string>
+
+    <string name="clear_title">Arıza kodları silinsin mi?</string>
+    <string name="clear_warn_comes_back">Sorunu gidermeden silersen arıza lambası kısa süre sonra tekrar yanar.</string>
+    <string name="clear_warn_readiness">Silme işlemi aracın emisyon hazırlık testlerini (readiness) sıfırlar. Araç bu testleri birkaç gün normal sürüşle tamamlar; bu sürede muayeneden geçemeyebilir.</string>
+    <string name="clear_warn_permanent">Kalıcı kodlar bu işlemle silinmez.</string>
+    <string name="clear_warn_note_codes">Servise gidecek olursan kodları önceden not al.</string>
+    <string name="clear_warn_engine_off">Motor çalışmıyorken, kontak açıkken silmen önerilir.</string>
+    <string name="clear_understood">Okudum, anladım</string>
+    <string name="clear_confirm">Evet, sil</string>
+
+    <!-- Vehicle -->
+    <string name="vehicle_vin">Şasi numarası (VIN)</string>
+    <string name="vehicle_reading">Araç bilgileri okunuyor…</string>
+    <string name="vehicle_details">Araç bilgileri</string>
+    <string name="vehicle_sensors">Desteklenen sensörler · %1$d</string>
+    <string name="vehicle_sensors_hint">Liste, Ana Sayfa\'da canlı veri bir kez okunduktan sonra dolar.</string>
+    <string name="vehicle_sensors_all">Tümünü göster</string>
+    <string name="vehicle_sensors_less">Daha az göster</string>
+
+    <string name="vehicle_make">Üretici</string>
+    <string name="vehicle_region">Üretim bölgesi</string>
+
+    <!-- Menu / about -->
+    <string name="menu_more">Diğer seçenekler</string>
+    <string name="action_back">Geri</string>
+    <string name="about_title">Hakkında</string>
+    <string name="about_product">Araç teşhis uygulaması</string>
+    <string name="about_version">Sürüm</string>
+    <string name="about_dtc_db">Türkçe arıza veritabanı</string>
+    <string name="about_dtc_db_count">%1$d kod</string>
+    <string name="about_adapters">Desteklenen adaptör</string>
+    <string name="about_open_source">Açık kaynak</string>
+    <string name="about_open_source_body">Bu uygulama, açık kaynak AndrOBD projesinin (fr3ts0n) iletişim katmanı üzerine geliştirilmiştir ve GNU GPL-3.0 lisansı ile dağıtılır. Kaynak kodu herkese açıktır.</string>
+    <string name="about_androbd">AndrOBD projesi</string>
+    <string name="about_gpl">GPL-3.0 lisans metni</string>
+    <string name="about_database">Arıza kodu açıklamaları</string>
+    <string name="about_database_body">Türkçe arıza kodu açıklamaları SCTech tarafından hazırlanmıştır ve CC BY-SA 4.0 lisansı ile paylaşılmaktadır.</string>
+
+    <!-- Notification -->
+    <string name="notif_channel_name">Araç bağlantısı</string>
+    <string name="notif_connecting">Bağlanıyor: %1$s</string>
+    <string name="notif_connected">Araca bağlı: %1$s</string>
+
+    <string name="disclaimer">Bilgiler genel amaçlıdır ve kesin teşhis yerine geçmez. Emin değilsen bir ustaya veya yetkili servise danış. AndrOBD tabanlıdır (GPL-3.0).</string>
+</resources>

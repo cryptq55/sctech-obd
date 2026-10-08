@@ -1,0 +1,1383 @@
+{
+  "version": 1,
+  "license": "CC BY-SA 4.0",
+  "codes": [
+    {
+      "code": "P0011",
+      "title": "Eksantrik (kam) zamanlaması fazla avansta – Bank 1",
+      "meaning": "Motor beyni, emme eksantrik milinin olması gerekenden daha ileri konumda olduğunu görüyor. Değişken supap zamanlaması (VVT) sistemi istenen ayarı tutturamıyor.",
+      "causes": ["Motor yağı eski, az ya da yanlış viskozitede", "VVT (kam ayar) selenoid valfi arızası", "Kam ayar dişlisi (variator) arızası", "Triger zinciri/kayışı esnemiş veya diş atlamış"],
+      "actions": ["Yağ seviyesini ve rengini kontrol et; bakımı geçtiyse önce yağ ve filtre değişimi yaptır", "Sorun sürerse VVT selenoidi ve dişlisini kontrol ettir", "Motordan tıkırtı geliyorsa triger sistemini vakit kaybetmeden kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0016",
+      "title": "Krank – eksantrik konum uyumsuzluğu (Bank 1, Sensör A)",
+      "meaning": "Krank mili ile eksantrik milinin birbirine göre konumu beklenen değerde değil. Motorun zamanlaması kaymış olabilir.",
+      "causes": ["Triger zinciri esnemiş veya gergi arızalı", "Triger kayışı diş atlamış", "Krank veya kam sensörü arızası", "VVT sistemi arızası", "Yağ basıncı düşük"],
+      "actions": ["Uzun yol yapmadan servise götür", "Triger setinin durumunu kontrol ettir; zincirli motorlarda bu kod sık görülür", "Sensörleri değiştirmeden önce mekanik zamanlamayı doğrulat"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0087",
+      "title": "Yakıt rampası basıncı çok düşük",
+      "meaning": "Enjektörlere giden yakıt basıncı olması gerekenin altında. Dizel (common rail) araçlarda sık görülür; motor güç kaybedebilir veya stop edebilir.",
+      "causes": ["Yakıt filtresi tıkalı", "Yakıtta hava/su", "Düşük basınç (depo) pompası zayıf", "Yüksek basınç pompası arızası", "Basınç regülatörü veya rampa basınç sensörü arızası"],
+      "actions": ["Yakıt filtresi bakımı geçtiyse önce filtreyi değiştir", "Depoda yeterli yakıt olduğundan emin ol", "Güç kaybı veya stop etme varsa aracı zorlamadan servise götür"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0101",
+      "title": "Hava debimetresi (MAF) ölçüm aralığı/performans sorunu",
+      "meaning": "Motora giren hava miktarını ölçen sensörün değerleri, motor beyninin beklediğiyle uyuşmuyor.",
+      "causes": ["Hava filtresi çok kirli", "Debimetre sensörü kirlenmiş veya arızalı", "Emme hortumunda kaçak (yırtık/gevşek kelepçe)", "Turbo hortumlarında kaçak (dizel/turbolu)"],
+      "actions": ["Hava filtresini kontrol et", "Debimetre ile gaz kelebeği arasındaki hortumlarda yırtık ve gevşeklik ara", "Debimetreyi özel MAF temizleyici sprey ile temizletmek bazen yeterli olur"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0113",
+      "title": "Emme havası sıcaklık sensörü – yüksek sinyal",
+      "meaning": "Emme havası sıcaklık sensöründen gelen sinyal mantıksız derecede yüksek; genellikle sensör kopuk ya da devre açık.",
+      "causes": ["Sensör soketi çıkmış veya oksitlenmiş", "Kablo kopuk", "Sensör arızası (çoğu araçta debimetrenin içindedir)"],
+      "actions": ["Debimetre / emme sensörü soketini kontrol et", "Kabloda hasar yoksa sensörü test ettir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0118",
+      "title": "Motor suyu sıcaklık sensörü – yüksek sinyal",
+      "meaning": "Motor suyu sıcaklık sensöründen gelen sinyal mantıksız derecede yüksek. Motor beyni gerçek sıcaklığı bilemediği için fanı sürekli çalıştırabilir, rölanti ve yakıt ayarı bozulabilir.",
+      "causes": ["Sensör soketi çıkmış veya oksitlenmiş", "Kablo kopuk", "Sensör arızası"],
+      "actions": ["Gösterge panelindeki hararet göstergesini izle", "Sensör ve soketini kontrol ettir; ucuz bir parçadır", "Gerçek hararet belirtisi (buhar, su eksilmesi) varsa motoru durdur"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0128",
+      "title": "Termostat – motor suyu çalışma sıcaklığına ulaşmıyor",
+      "meaning": "Motor, belirli bir süre çalışmasına rağmen normal çalışma sıcaklığına çıkamıyor. En sık sebep açık kalmış termostattır.",
+      "causes": ["Termostat açık kalmış", "Motor suyu sıcaklık sensörü hatalı ölçüyor", "Motor suyu seviyesi düşük", "Fan sürekli çalışıyor"],
+      "actions": ["Motor suyu seviyesini kontrol et (motor soğukken)", "Kalorifer geç ısınıyorsa termostat değişimi büyük ihtimalle çözüm", "Acil değil, ama yakıt tüketimini artırır"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0133",
+      "title": "Oksijen (lambda) sensörü yavaş tepki – Bank 1 Sensör 1",
+      "meaning": "Katalizör öncesindeki oksijen sensörü, karışım değişikliklerine olması gerektiği kadar hızlı tepki vermiyor. Sensör yaşlanmış olabilir.",
+      "causes": ["Oksijen sensörü yaşlanmış/kirlenmiş", "Sensör önünde egzoz kaçağı", "Sensör ısıtıcı devresinde sorun"],
+      "actions": ["Egzoz manifoldu ve ön borularda kaçak kontrolü yaptır", "Kaçak yoksa ön oksijen sensörünü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0171",
+      "title": "Karışım çok fakir – Bank 1",
+      "meaning": "Motor beyni, yakıt-hava karışımında fazla hava (ya da az yakıt) olduğunu tespit ediyor ve düzeltme sınırına ulaştı.",
+      "causes": ["Vakum kaçağı (çatlak hortum, emme manifoldu contası)", "Hava debimetresi kirli/arızalı", "Yakıt filtresi tıkalı veya yakıt pompası zayıf", "Enjektör tıkanıklığı", "LPG'li araçlarda LPG ayarı bozuk"],
+      "actions": ["Motor çalışırken emme tarafında ıslık sesi ara (vakum kaçağı)", "Debimetreyi temizlet/kontrol ettir", "LPG'li araçta sorun sadece LPG'de çıkıyorsa LPG servisine ayar yaptır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0172",
+      "title": "Karışım çok zengin – Bank 1",
+      "meaning": "Motor beyni, karışımda fazla yakıt (ya da az hava) olduğunu tespit ediyor. Yakıt tüketimi artar, egzozdan koku/is gelebilir.",
+      "causes": ["Hava filtresi çok kirli", "Enjektör kaçırıyor", "Yakıt basınç regülatörü arızalı", "Debimetre veya oksijen sensörü hatalı ölçüyor", "LPG'li araçlarda LPG ayarı bozuk"],
+      "actions": ["Hava filtresini kontrol et", "Uzun süre böyle kullanma; katalizöre zarar verebilir", "LPG'li araçta LPG servisinde ayar kontrolü yaptır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0174",
+      "title": "Karışım çok fakir – Bank 2",
+      "meaning": "V tipi motorlarda ikinci silindir sırasında karışım fakir. P0171 ile birlikte geliyorsa sebep genellikle ortaktır (vakum kaçağı, debimetre).",
+      "causes": ["Vakum kaçağı", "Hava debimetresi kirli/arızalı", "Yakıt basıncı düşük"],
+      "actions": ["P0171 ile aynı kontrolleri yap", "İki kod birlikteyse önce debimetre ve vakum kaçağını kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0299",
+      "title": "Turbo basıncı yetersiz (underboost)",
+      "meaning": "Turbonun ürettiği basınç, motor beyninin istediğinin altında kalıyor. Araç güç kaybeder, 'limp mode' (acil durum moduna) geçebilir.",
+      "causes": ["Turbo hortumu yırtık veya kelepçe gevşek", "Intercooler kaçağı", "Turbo kanatçık (VNT) mekanizması kurumlanmış/takılmış", "Turbo kontrol (wastegate) vakum hortumu veya valfi arızalı", "Turbonun kendisi yıpranmış"],
+      "actions": ["Turbo ve intercooler hortumlarında yağlanma ve yırtık ara", "Vakum hortumlarını kontrol ettir", "Turbodan ıslık/siren sesi ve mavi duman varsa vakit kaybetmeden servise git"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0300",
+      "title": "Rastgele / çoklu silindirde ateşleme hatası (tekleme)",
+      "meaning": "Motor birden fazla silindirde ya da rastgele silindirlerde tekliyor. Yanmayan yakıt katalizöre gidip onu kısa sürede bozabilir.",
+      "causes": ["Bujiler yıpranmış", "Ateşleme bobini veya buji kablosu arızası", "Vakum kaçağı", "Yakıt basıncı düşük / kötü yakıt", "LPG'li araçlarda LPG enjektör veya ayar sorunu", "Kompresyon kaybı (mekanik sorun)"],
+      "actions": ["Arıza lambası YANIP SÖNÜYORSA aracı zorlama, mümkünse durdur", "Bujilerin değişim zamanı geçtiyse bujileri ve bobinleri kontrol ettir", "LPG'li araçta sorun benzinde de var mı kontrol et"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0301",
+      "title": "1. silindirde ateşleme hatası (tekleme)",
+      "meaning": "Motor beyni 1 numaralı silindirde yanmanın düzgün gerçekleşmediğini tespit etti.",
+      "causes": ["1. silindir bujisi", "1. silindir ateşleme bobini", "1. silindir enjektörü", "1. silindirde kompresyon kaybı"],
+      "actions": ["Bobinin yerini başka bir silindirle değiştirip kodun o silindire taşınıp taşınmadığına baktır (basit ve ücretsiz bir test)", "Arıza lambası yanıp sönüyorsa aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0302",
+      "title": "2. silindirde ateşleme hatası (tekleme)",
+      "meaning": "Motor beyni 2 numaralı silindirde yanmanın düzgün gerçekleşmediğini tespit etti.",
+      "causes": ["2. silindir bujisi", "2. silindir ateşleme bobini", "2. silindir enjektörü", "2. silindirde kompresyon kaybı"],
+      "actions": ["Bobinin yerini başka bir silindirle değiştirip kodun taşınıp taşınmadığına baktır", "Arıza lambası yanıp sönüyorsa aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0303",
+      "title": "3. silindirde ateşleme hatası (tekleme)",
+      "meaning": "Motor beyni 3 numaralı silindirde yanmanın düzgün gerçekleşmediğini tespit etti.",
+      "causes": ["3. silindir bujisi", "3. silindir ateşleme bobini", "3. silindir enjektörü", "3. silindirde kompresyon kaybı"],
+      "actions": ["Bobinin yerini başka bir silindirle değiştirip kodun taşınıp taşınmadığına baktır", "Arıza lambası yanıp sönüyorsa aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0304",
+      "title": "4. silindirde ateşleme hatası (tekleme)",
+      "meaning": "Motor beyni 4 numaralı silindirde yanmanın düzgün gerçekleşmediğini tespit etti.",
+      "causes": ["4. silindir bujisi", "4. silindir ateşleme bobini", "4. silindir enjektörü", "4. silindirde kompresyon kaybı"],
+      "actions": ["Bobinin yerini başka bir silindirle değiştirip kodun taşınıp taşınmadığına baktır", "Arıza lambası yanıp sönüyorsa aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0335",
+      "title": "Krank mili konum sensörü devresi arızası",
+      "meaning": "Motor beyni krank milinin konumunu ve devrini ölçen sensörden sinyal alamıyor. Bu sensör olmadan motor çoğu zaman çalışmaz veya yolda stop edebilir.",
+      "causes": ["Krank sensörü arızası", "Sensör soketi/kablosu hasarlı", "Sensör ile volan dişlisi arasında kir veya hasar"],
+      "actions": ["Motor yolda stop edebilir; uzun yola çıkma", "Sensör ve kablolarını kontrol ettir; genellikle sensör değişimi çözer"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0340",
+      "title": "Eksantrik mili konum sensörü devresi arızası (Sensör A)",
+      "meaning": "Motor beyni eksantrik mili konum sensöründen düzgün sinyal alamıyor. Marş uzun basabilir, motor zor çalışabilir.",
+      "causes": ["Kam sensörü arızası", "Soket veya kablo hasarı", "Triger zamanlamasında kayma"],
+      "actions": ["Sensör ve soketini kontrol ettir", "Yakın zamanda triger değişimi yapıldıysa ayarın doğruluğunu kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0380",
+      "title": "Kızdırma bujisi devresi arızası (dizel)",
+      "meaning": "Dizel motorun soğukta çalışmasını kolaylaştıran kızdırma bujilerinin devresinde sorun var. Özellikle kışın zor çalışma görülür.",
+      "causes": ["Bir veya birkaç kızdırma bujisi yanmış", "Kızdırma rölesi / kontrol ünitesi arızası", "Kablo veya soket sorunu"],
+      "actions": ["Kış gelmeden kızdırma bujilerini ölçtür", "Genellikle bujiler toplu değiştirilir; sökümde kırılma riskine karşı işi bilen bir ustaya yaptır"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0401",
+      "title": "EGR akışı yetersiz",
+      "meaning": "Egzoz gazının bir kısmını tekrar motora gönderen EGR sistemi yeterli akış sağlayamıyor. Dizellerde EGR valfinin kurumlanması çok yaygındır.",
+      "causes": ["EGR valfi kurumla tıkanmış veya takılı", "EGR kanalları tıkalı", "EGR vakum hortumu/selenoidi arızası", "EGR soğutucusu tıkalı"],
+      "actions": ["EGR valfi ve kanallarını temizlet", "Temizlik işe yaramazsa valf değişimi gerekebilir", "Kısa mesafe kullanım kurumlanmayı hızlandırır; ara sıra uzun yol yapmak faydalıdır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0402",
+      "title": "EGR akışı fazla",
+      "meaning": "EGR sistemi gereğinden fazla egzoz gazını motora geri gönderiyor; genellikle EGR valfi açık kalmıştır. Rölantide titreme, stop etme ve güç kaybı görülebilir.",
+      "causes": ["EGR valfi açık takılı kalmış", "EGR kontrol selenoidi arızası", "Valf konum sensörü hatası"],
+      "actions": ["EGR valfini kontrol ettir/temizlet", "Rölantide stop ediyorsa trafikte dikkatli ol, servise götür"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0420",
+      "title": "Katalizör verimi eşik değerin altında – Bank 1",
+      "meaning": "Egzozdaki katalitik konvertör zararlı gazları yeterince temizleyemiyor. Araç muayenede egzoz emisyon testinden kalabilir.",
+      "causes": ["Katalizör yaşlanmış veya erimiş", "Arka oksijen sensörü hatalı ölçüyor", "Katalizör önünde egzoz kaçağı", "Uzun süre tekleme veya zengin karışımla kullanım"],
+      "actions": ["Önce egzoz kaçağı ve arka oksijen sensörünü kontrol ettir (daha ucuz)", "Katalizör değişimi son çare olmalı", "Teklemeyle ilgili başka kodlar varsa önce onları çöz, yoksa yeni katalizör de bozulur"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0430",
+      "title": "Katalizör verimi eşik değerin altında – Bank 2",
+      "meaning": "V tipi motorlarda ikinci silindir sırasındaki katalizör zararlı gazları yeterince temizleyemiyor.",
+      "causes": ["Katalizör yaşlanmış", "Bank 2 arka oksijen sensörü hatası", "Egzoz kaçağı"],
+      "actions": ["P0420 ile aynı kontrolleri yap", "Önce sensör ve kaçak kontrolü, sonra katalizör"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0442",
+      "title": "Yakıt buharı (EVAP) sisteminde küçük kaçak",
+      "meaning": "Yakıt deposundan çıkan buharları toplayan sistemde küçük bir kaçak tespit edildi. Sürüşü etkilemez, hafif benzin kokusu olabilir.",
+      "causes": ["Depo kapağı tam kapanmamış veya contası yıpranmış", "EVAP hortumunda çatlak", "Kanister (karbon filtre) veya valf kaçağı"],
+      "actions": ["Önce depo kapağını kontrol et, 'klik' sesi gelene kadar kapat", "Kod birkaç sürüş sonra tekrar geliyorsa EVAP sistemine duman testi yaptır"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0455",
+      "title": "Yakıt buharı (EVAP) sisteminde büyük kaçak",
+      "meaning": "Yakıt buharı sisteminde büyük bir kaçak var. En sık sebep açık unutulmuş ya da hasarlı depo kapağıdır.",
+      "causes": ["Depo kapağı açık veya hasarlı", "EVAP hortumu çıkmış/kopmuş", "Kanister valfi arızası"],
+      "actions": ["Depo kapağını kontrol et", "Benzin kokusu belirginse hortumları kontrol ettir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0456",
+      "title": "Yakıt buharı (EVAP) sisteminde çok küçük kaçak",
+      "meaning": "Yakıt buharı sisteminde çok küçük bir kaçak var. Sürüşü etkilemez.",
+      "causes": ["Depo kapağı contası yıpranmış", "Hortum bağlantılarında küçük çatlak", "Kanister valfi tam kapanmıyor"],
+      "actions": ["Depo kapağını değiştirmek çoğu zaman çözer", "Sürerse duman testi yaptır"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0500",
+      "title": "Araç hız sensörü arızası",
+      "meaning": "Motor beyni araç hız bilgisini alamıyor veya bilgi mantıksız. Kilometre saati çalışmayabilir, vites geçişleri bozulabilir.",
+      "causes": ["Hız sensörü arızası", "Kablo/soket sorunu", "ABS tekerlek hız sensörü arızası (birçok araçta hız buradan alınır)"],
+      "actions": ["Gösterge paneli hızı gösteriyor mu kontrol et", "ABS lambası da yanıyorsa ABS sensörlerine baktır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0505",
+      "title": "Rölanti kontrol sistemi arızası",
+      "meaning": "Motor beyni rölanti devrini istediği değerde tutamıyor. Rölanti dalgalanabilir veya motor stop edebilir.",
+      "causes": ["Gaz kelebeği gövdesi kirli", "Rölanti ayar valfi (IAC) arızası", "Vakum kaçağı"],
+      "actions": ["Gaz kelebeğini temizlet", "Akü sökülüp takıldıysa bazı araçlarda rölanti öğrenme işlemi gerekir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0507",
+      "title": "Rölanti devri beklenenden yüksek",
+      "meaning": "Motor rölantide olması gerekenden yüksek devirde çalışıyor.",
+      "causes": ["Vakum kaçağı", "Gaz kelebeği kirli veya tam kapanmıyor", "Rölanti valfi arızası"],
+      "actions": ["Emme tarafında hava kaçağı ara", "Gaz kelebeğini temizlet ve rölanti öğrenme yaptır"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0562",
+      "title": "Sistem voltajı düşük",
+      "meaning": "Motor beyni araç elektrik voltajını olması gerekenden düşük ölçüyor. Akü zayıf ya da şarj sistemi yetersiz olabilir.",
+      "causes": ["Akü zayıflamış", "Alternatör (şarj dinamosu) yeterli şarj etmiyor", "Akü kutup başları gevşek/oksitli", "Şasi bağlantısı kötü"],
+      "actions": ["Akü kutup başlarını kontrol et ve temizle", "Akü ve şarj testini yaptır (çoğu akücüde ücretsizdir)", "Canlı veride motor çalışırken voltaj 13,5–14,5 V arasında olmalı"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0606",
+      "title": "Motor kontrol ünitesi (ECU) işlemci arızası",
+      "meaning": "Motor beyni kendi iç testinde bir hata buldu. Bazen geçici voltaj dalgalanmasından, bazen gerçek bir beyin arızasından kaynaklanır.",
+      "causes": ["Akü/şarj voltajında dalgalanma", "ECU yazılım hatası", "ECU donanım arızası", "Kötü şasi bağlantısı"],
+      "actions": ["Önce akü ve şasi bağlantılarını kontrol ettir", "Kodu silip tekrar gelip gelmediğine bak", "Tekrar geliyorsa yetkili serviste yazılım güncellemesi veya beyin onarımı gerekebilir"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0700",
+      "title": "Şanzıman kontrol sistemi arızası (TCM uyarısı)",
+      "meaning": "Otomatik şanzıman beyni kendi içinde bir arıza kaydetti ve motor beyninden arıza lambasını yakmasını istedi. Asıl arıza kodu şanzıman beynindedir.",
+      "causes": ["Şanzıman beyninde kayıtlı başka bir arıza var", "Şanzıman yağı eski/az", "Şanzıman selenoid veya sensör arızası"],
+      "actions": ["Asıl kodu görmek için şanzıman beynini okuyabilen bir cihazla taratma gerekir", "Vites geçişlerinde vuruntu/kayma varsa aracı zorlama"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2002",
+      "title": "Dizel partikül filtresi (DPF) verimi düşük – Bank 1",
+      "meaning": "Egzozdaki partikül filtresi beklenen şekilde çalışmıyor; filtre aşırı dolmuş ya da hasar görmüş olabilir.",
+      "causes": ["DPF kurumla dolmuş (çok kısa mesafe kullanım)", "DPF fark basınç sensörü veya hortumu arızası", "DPF hasarlı/çatlak", "Rejenerasyon (kendini temizleme) tamamlanamıyor"],
+      "actions": ["Uygunsa 20–30 dakika otoyolda sabit devirde sürerek kendini temizlemesine izin ver", "Fark basınç sensörü hortumlarını kontrol ettir", "Sürerse serviste zorunlu rejenerasyon veya DPF temizliği yaptır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "U0100",
+      "title": "Motor kontrol ünitesi (ECM/PCM) ile iletişim kesildi",
+      "meaning": "Araçtaki diğer beyinler motor beyniyle haberleşemiyor. Motor çalışmayabilir veya birçok uyarı lambası aynı anda yanabilir.",
+      "causes": ["Akü voltajı düşük", "CAN hattı kablo/soket sorunu", "Motor beyninin sigortası/beslemesi kesik", "Motor beyni arızası"],
+      "actions": ["Akü voltajını kontrol et", "Motor beyni sigortalarını kontrol ettir", "Araç çalışmıyorsa yerinde elektrik arıza tespiti gerekir"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0010",
+      "title": "Emme eksantrik ayar valfi (VVT) devresi – Bank 1",
+      "meaning": "Motor beyni, emme eksantrik milinin zamanlamasını ayarlayan selenoid valfin elektrik devresinde sorun görüyor.",
+      "causes": ["VVT selenoid valfi arızalı", "Valf soketi çıkmış veya oksitlenmiş", "Kabloda kopukluk veya kısa devre"],
+      "actions": ["Valf soketini ve kablosunu kontrol ettir", "Valfin direncini ölçtür; arızalıysa değiştir", "Yağ değişimi zamanı geçtiyse onu da yaptır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0012",
+      "title": "Eksantrik (kam) zamanlaması fazla rötarda – Bank 1",
+      "meaning": "Emme eksantrik mili olması gerekenden daha geride kalıyor. Değişken supap zamanlaması istenen konuma gelemiyor.",
+      "causes": ["Motor yağı eski, az ya da yanlış viskozitede", "VVT selenoidi takılı kalmış", "Kam ayar dişlisi arızası", "Triger zinciri esnemiş"],
+      "actions": ["Yağ seviyesini kontrol et, bakımı geçtiyse yağı değiştir", "Sorun sürerse VVT valfi ve dişlisini kontrol ettir", "Soğuk çalıştırmada zincir sesi varsa triger sistemine baktır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0014",
+      "title": "Egzoz eksantrik zamanlaması fazla avansta – Bank 1",
+      "meaning": "Egzoz eksantrik mili olması gerekenden daha ileri konumda. Egzoz tarafındaki değişken zamanlama sistemi ayarı tutturamıyor.",
+      "causes": ["Motor yağı eski veya az", "Egzoz VVT selenoidi arızalı", "Egzoz kam ayar dişlisi arızası", "Triger zinciri esnemiş"],
+      "actions": ["Önce yağ seviyesini ve bakım geçmişini kontrol et", "Egzoz VVT valfini test ettir", "Kod tekrar ediyorsa triger setini kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0017",
+      "title": "Krank – eksantrik konum uyumsuzluğu (Bank 1, Sensör B)",
+      "meaning": "Krank mili ile egzoz eksantrik milinin birbirine göre konumu beklenen değerde değil. Motor zamanlaması kaymış olabilir.",
+      "causes": ["Triger zinciri esnemiş veya gergi arızalı", "Triger kayışı diş atlamış", "Egzoz kam sensörü arızası", "VVT sistemi arızası"],
+      "actions": ["Uzun yol yapmadan servise götür", "Sensör değiştirmeden önce mekanik zamanlamayı kontrol ettir", "P0016 ile birlikte geliyorsa triger sistemi büyük olasılıkla sorunludur"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0030",
+      "title": "Ön oksijen sensörü ısıtıcı devresi – Bank 1 Sensör 1",
+      "meaning": "Katalizör öncesindeki oksijen sensörünün ısıtıcısında elektrik sorunu var. Sensör geç ısındığı için soğuk motorda karışım ayarı bozulur.",
+      "causes": ["Oksijen sensörü ısıtıcısı yanmış", "Sensör soketi veya kablosu hasarlı", "Isıtıcı sigortası atmış"],
+      "actions": ["İlgili sigortayı kontrol et", "Sensör kablosunun egzoza değip erimediğine bak", "Isıtıcı direnci hatalıysa sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0036",
+      "title": "Arka oksijen sensörü ısıtıcı devresi – Bank 1 Sensör 2",
+      "meaning": "Katalizör sonrasındaki oksijen sensörünün ısıtıcısında elektrik sorunu var. Katalizör takibi doğru yapılamaz.",
+      "causes": ["Arka oksijen sensörü ısıtıcısı yanmış", "Kablo egzoza değip erimiş", "Soket oksitlenmiş", "Isıtıcı sigortası atmış"],
+      "actions": ["Sigortayı ve kablo yolunu kontrol et", "Isıtıcı direnci hatalıysa arka sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0068",
+      "title": "Emme basıncı / hava debisi ile gaz kelebeği konumu uyumsuz",
+      "meaning": "Gaz kelebeğinin açıklığına göre motora girmesi beklenen hava ile ölçülen hava birbirini tutmuyor. Çoğu zaman emme tarafında hava kaçağı vardır.",
+      "causes": ["Emme manifoldu veya hortumlarda hava kaçağı", "Gaz kelebeği kirli", "Debimetre veya MAP sensörü hatalı ölçüyor", "PCV (karter havalandırma) valfi arızası"],
+      "actions": ["Motor çalışırken emme tarafında ıslık sesi ara", "Gaz kelebeğini temizlet", "Sensörleri canlı veride karşılaştırarak kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0088",
+      "title": "Yakıt rampası basıncı çok yüksek",
+      "meaning": "Enjektörlere giden yakıt basıncı olması gerekenin üzerinde. Dizel (common rail) araçlarda motor güç kesebilir veya stop edebilir.",
+      "causes": ["Basınç regülatörü/ayar valfi takılı kalmış", "Rampa basınç sensörü hatalı ölçüyor", "Yakıt dönüş hattı tıkalı", "Yüksek basınç pompası arızası"],
+      "actions": ["Aracı zorlamadan servise götür", "Rampa basınç sensörü ve regülatörü kontrol ettir", "Dönüş hattında ezilme veya tıkanma ara"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0100",
+      "title": "Hava debimetresi (MAF) devresi arızası",
+      "meaning": "Motor beyni, motora giren havayı ölçen debimetreden sinyal alamıyor ya da sinyal tamamen mantıksız.",
+      "causes": ["Debimetre soketi çıkmış veya oksitlenmiş", "Kablo kopuk", "Debimetre arızası", "Debimetre besleme sigortası atmış"],
+      "actions": ["Debimetre soketini çıkarıp tak, oksit varsa temizle", "Kablo ve sigortayı kontrol ettir", "Sorun sürerse debimetreyi değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0102",
+      "title": "Hava debimetresi (MAF) – düşük sinyal",
+      "meaning": "Debimetreden gelen sinyal olması gerekenden düşük. Motor beyni giren havayı az görüyor, araç çekişsiz olabilir.",
+      "causes": ["Debimetre kirlenmiş", "Debimetre önünde hava kaçağı veya yırtık hortum", "Soket/kablo sorunu", "Debimetre arızası"],
+      "actions": ["Hava filtresini ve hortumları kontrol et", "Debimetreyi MAF temizleyici ile temizlet", "Sinyal düzelmezse debimetreyi değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0103",
+      "title": "Hava debimetresi (MAF) – yüksek sinyal",
+      "meaning": "Debimetreden gelen sinyal olması gerekenden yüksek. Karışım zenginleşebilir, yakıt tüketimi artabilir.",
+      "causes": ["Debimetre arızası", "Sinyal kablosunda kısa devre", "Şasi bağlantısı kötü"],
+      "actions": ["Soket ve kabloyu kontrol ettir", "Debimetreyi test ettir, arızalıysa değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0105",
+      "title": "Emme manifoldu basınç (MAP) sensörü devresi",
+      "meaning": "Emme manifoldundaki basıncı ölçen sensörden sinyal alınamıyor. Motor beyni yakıt miktarını tahminle ayarlar.",
+      "causes": ["MAP sensörü soketi çıkmış", "Kablo kopuk", "MAP sensörü arızası", "Sensöre giden vakum hortumu kopmuş"],
+      "actions": ["Sensör soketini ve vakum hortumunu kontrol et", "Sensörü test ettir, arızalıysa değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0106",
+      "title": "Emme manifoldu basınç (MAP) sensörü ölçüm aralığı/performans",
+      "meaning": "MAP sensörünün ölçtüğü basınç, motorun çalışma durumuna göre mantıklı değil.",
+      "causes": ["Vakum kaçağı", "MAP sensörü kirli veya arızalı", "Sensör hortumu çatlak", "Turbolu araçlarda basınç hattında kaçak"],
+      "actions": ["Vakum ve turbo hortumlarında kaçak ara", "Sensörü temizlet veya test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0107",
+      "title": "Emme manifoldu basınç (MAP) sensörü – düşük sinyal",
+      "meaning": "MAP sensöründen gelen sinyal olması gerekenden düşük; çoğunlukla devre açık ya da şaseye kaçak vardır.",
+      "causes": ["Sensör soketi çıkmış", "5 V besleme kablosu kopuk", "Sinyal kablosu şaseye kaçak yapıyor", "Sensör arızası"],
+      "actions": ["Soketi ve kablo demetini kontrol ettir", "Sensör beslemesini ölçtür"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0108",
+      "title": "Emme manifoldu basınç (MAP) sensörü – yüksek sinyal",
+      "meaning": "MAP sensöründen gelen sinyal olması gerekenden yüksek. Motor beyni manifoldu olduğundan daha yüklü görür.",
+      "causes": ["Sensör arızası", "Sinyal kablosu beslemeye kısa devre", "Sensör hortumu tıkalı veya kopuk"],
+      "actions": ["Kablo ve hortumu kontrol ettir", "Sensörü test ettir, arızalıysa değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0110",
+      "title": "Emme havası sıcaklık sensörü devresi",
+      "meaning": "Emme havası sıcaklık sensöründen düzgün sinyal alınamıyor. Motor beyni sabit bir varsayılan sıcaklık kullanır.",
+      "causes": ["Sensör soketi çıkmış veya oksitlenmiş", "Kablo hasarlı", "Sensör arızası (çoğu araçta debimetre içindedir)"],
+      "actions": ["Soketi kontrol et", "Sensör debimetre içindeyse debimetreyle birlikte değerlendirilmeli"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0112",
+      "title": "Emme havası sıcaklık sensörü – düşük sinyal",
+      "meaning": "Emme havası sıcaklık sensöründen gelen sinyal düşük; motor beyni havayı gerçekte olduğundan çok sıcak görür. Genellikle kablo şaseye kaçak yapıyordur.",
+      "causes": ["Sinyal kablosunda şaseye kısa devre", "Sensör arızası", "Soket içinde su veya oksit"],
+      "actions": ["Kablo demetini kontrol ettir", "Sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0115",
+      "title": "Motor suyu sıcaklık sensörü devresi",
+      "meaning": "Motor suyu sıcaklık sensöründen düzgün sinyal gelmiyor. Fan sürekli çalışabilir, soğuk çalıştırma zorlaşabilir.",
+      "causes": ["Sensör soketi çıkmış veya oksitlenmiş", "Kablo kopuk", "Sensör arızası"],
+      "actions": ["Hararet göstergesini takip et", "Sensör ve soketini kontrol ettir; ucuz bir parçadır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0116",
+      "title": "Motor suyu sıcaklık sensörü ölçüm aralığı/performans",
+      "meaning": "Motor suyu sıcaklık sensörünün değeri motorun çalışma süresine ve diğer sensörlere göre mantıksız.",
+      "causes": ["Sensör hatalı ölçüyor", "Termostat açık kalmış", "Motor suyu eksik", "Soket temassızlığı"],
+      "actions": ["Motor suyu seviyesini kontrol et (motor soğukken)", "Sensörü ve termostatı kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0117",
+      "title": "Motor suyu sıcaklık sensörü – düşük sinyal",
+      "meaning": "Sensörden gelen sinyal düşük; motor beyni motoru gerçekte olduğundan çok sıcak görür. Fan sürekli çalışabilir.",
+      "causes": ["Sinyal kablosunda şaseye kısa devre", "Sensör arızası", "Soket içinde su"],
+      "actions": ["Gerçek hararet olup olmadığını gösterge ve motor suyu ile kontrol et", "Kablo ve sensörü kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0120",
+      "title": "Gaz kelebeği/pedal konum sensörü A devresi",
+      "meaning": "Gaz kelebeği veya gaz pedalı konum sensörünün A devresinde sorun var. Araç güç kısıtlamalı acil moda (limp mode) geçebilir.",
+      "causes": ["Gaz kelebeği gövdesi sensörü arızası", "Soket temassızlığı", "Kablo hasarı"],
+      "actions": ["Gaz kelebeği soketini kontrol et", "Gaz kelebeği gövdesini test ettir; çoğu araçta sensör gövdeyle birlikte değişir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0121",
+      "title": "Gaz kelebeği/pedal konum sensörü A ölçüm aralığı/performans",
+      "meaning": "Gaz kelebeği konum sensörü A'nın değeri, motor yükü ve hava akışıyla uyumlu değil. Gaz tepkisi kararsız olabilir.",
+      "causes": ["Gaz kelebeği kirli veya takılıyor", "Sensör içi aşınma", "Soket temassızlığı"],
+      "actions": ["Gaz kelebeğini temizlet ve öğrenme işlemi yaptır", "Sorun sürerse gaz kelebeği gövdesini değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0122",
+      "title": "Gaz kelebeği/pedal konum sensörü A – düşük sinyal",
+      "meaning": "Gaz kelebeği konum sensörü A'dan gelen sinyal olması gerekenden düşük. Araç acil moda geçip güç kesebilir.",
+      "causes": ["Sensör beslemesi kopuk", "Sinyal kablosu şaseye kaçak yapıyor", "Sensör arızası"],
+      "actions": ["Soket ve kabloyu kontrol ettir", "Gaz kelebeği gövdesini test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0123",
+      "title": "Gaz kelebeği/pedal konum sensörü A – yüksek sinyal",
+      "meaning": "Gaz kelebeği konum sensörü A'dan gelen sinyal olması gerekenden yüksek. Araç acil moda geçebilir.",
+      "causes": ["Şase bağlantısı kopuk", "Sinyal kablosu beslemeye kısa devre", "Sensör arızası"],
+      "actions": ["Soket ve şase bağlantısını kontrol ettir", "Gaz kelebeği gövdesini test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0130",
+      "title": "Ön oksijen sensörü devresi – Bank 1 Sensör 1",
+      "meaning": "Katalizör öncesindeki oksijen sensöründen beklenen sinyal gelmiyor. Motor beyni karışımı hassas ayarlayamaz.",
+      "causes": ["Oksijen sensörü arızası", "Soket veya kablo hasarı", "Sensör önünde egzoz kaçağı"],
+      "actions": ["Sensör kablosunu ve soketini kontrol et", "Egzoz manifoldunda kaçak ara", "Sorun sürerse ön sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0131",
+      "title": "Ön oksijen sensörü – düşük voltaj (Bank 1 Sensör 1)",
+      "meaning": "Ön oksijen sensörü sürekli düşük voltaj veriyor; motor beyni karışımı fakir sanıyor olabilir.",
+      "causes": ["Sensör önünde hava/egzoz kaçağı", "Oksijen sensörü arızası", "Sinyal kablosunda şaseye kaçak", "Gerçekten fakir karışım (vakum kaçağı)"],
+      "actions": ["Egzoz ve emme tarafında kaçak ara", "Karışımla ilgili başka kodlar varsa önce onlara bak", "Gerekirse ön sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0132",
+      "title": "Ön oksijen sensörü – yüksek voltaj (Bank 1 Sensör 1)",
+      "meaning": "Ön oksijen sensörü sürekli yüksek voltaj veriyor; motor beyni karışımı zengin sanıyor olabilir.",
+      "causes": ["Sinyal kablosu beslemeye kısa devre", "Oksijen sensörü arızası", "Sensör yakıt/yağ ile kirlenmiş", "Gerçekten zengin karışım"],
+      "actions": ["Kabloyu kontrol ettir", "Yakıt sisteminde kaçıran enjektör olup olmadığına baktır", "Gerekirse ön sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0134",
+      "title": "Ön oksijen sensöründe hareket yok (Bank 1 Sensör 1)",
+      "meaning": "Ön oksijen sensörünün sinyali değişmiyor; sensör ölmüş ya da ısınamıyor olabilir.",
+      "causes": ["Oksijen sensörü ömrünü tamamlamış", "Sensör ısıtıcısı arızalı", "Kablo kopuk"],
+      "actions": ["Isıtıcı kodu (P0135) da varsa önce ona bak", "Ön oksijen sensörünü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0135",
+      "title": "Ön oksijen sensörü ısıtıcı devresi – Bank 1 Sensör 1",
+      "meaning": "Ön oksijen sensörünün ısıtıcısı çalışmıyor. Sensör geç devreye girer, soğuk motorda yakıt tüketimi ve emisyon artar.",
+      "causes": ["Sensör içindeki ısıtıcı yanmış", "Isıtıcı sigortası atmış", "Kablo egzoza değip erimiş"],
+      "actions": ["Sigortayı kontrol et", "Isıtıcı direncini ölçtür; arızalıysa sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0136",
+      "title": "Arka oksijen sensörü devresi – Bank 1 Sensör 2",
+      "meaning": "Katalizör sonrasındaki oksijen sensöründen beklenen sinyal gelmiyor. Katalizör verimi takip edilemez.",
+      "causes": ["Arka oksijen sensörü arızası", "Soket veya kablo hasarı", "Egzoz kaçağı"],
+      "actions": ["Kablo ve soketi kontrol et", "Sorun sürerse arka sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0137",
+      "title": "Arka oksijen sensörü – düşük voltaj (Bank 1 Sensör 2)",
+      "meaning": "Katalizör sonrasındaki oksijen sensörü sürekli düşük voltaj veriyor.",
+      "causes": ["Sensör önünde egzoz kaçağı", "Arka oksijen sensörü arızası", "Sinyal kablosunda şaseye kaçak"],
+      "actions": ["Katalizör ve egzoz bağlantılarında kaçak ara", "Gerekirse arka sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0138",
+      "title": "Arka oksijen sensörü – yüksek voltaj (Bank 1 Sensör 2)",
+      "meaning": "Katalizör sonrasındaki oksijen sensörü sürekli yüksek voltaj veriyor.",
+      "causes": ["Sinyal kablosu beslemeye kısa devre", "Arka oksijen sensörü arızası", "Aşırı zengin karışım"],
+      "actions": ["Kabloyu kontrol ettir", "Karışımla ilgili başka kodlar varsa önce onları çöz", "Gerekirse arka sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0140",
+      "title": "Arka oksijen sensöründe hareket yok (Bank 1 Sensör 2)",
+      "meaning": "Katalizör sonrasındaki oksijen sensörünün sinyali değişmiyor; sensör ölmüş ya da devre açık olabilir.",
+      "causes": ["Arka oksijen sensörü ömrünü tamamlamış", "Isıtıcı arızası", "Kablo kopuk"],
+      "actions": ["Isıtıcı kodu (P0141) da varsa önce ona bak", "Arka oksijen sensörünü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0141",
+      "title": "Arka oksijen sensörü ısıtıcı devresi – Bank 1 Sensör 2",
+      "meaning": "Katalizör sonrasındaki oksijen sensörünün ısıtıcısı çalışmıyor. Katalizör takibi gecikir.",
+      "causes": ["Sensör içindeki ısıtıcı yanmış", "Isıtıcı sigortası atmış", "Kablo egzoza değip erimiş"],
+      "actions": ["Sigortayı ve kablo yolunu kontrol et", "Isıtıcı direnci hatalıysa sensörü değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0170",
+      "title": "Yakıt düzeltme arızası – Bank 1",
+      "meaning": "Motor beyni karışımı düzeltmek için ayar sınırına geldi ama yine de doğru oranı tutturamıyor. Karışım fakir ya da zengin olabilir.",
+      "causes": ["Vakum kaçağı", "Debimetre hatalı ölçüyor", "Yakıt basıncı düşük veya yüksek", "Enjektör sorunu", "LPG'li araçlarda LPG ayarı bozuk"],
+      "actions": ["Canlı veride kısa ve uzun dönem yakıt düzeltme değerlerine baktır", "Vakum kaçağı ve debimetreyi kontrol ettir", "LPG'li araçta sorun hangi yakıtta çıkıyor, not et"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0175",
+      "title": "Karışım çok zengin – Bank 2",
+      "meaning": "V tipi motorlarda ikinci silindir sırasında karışım zengin. P0172 ile birlikte geliyorsa sebep genellikle ortaktır.",
+      "causes": ["Hava filtresi tıkalı", "Enjektör kaçırıyor", "Yakıt basıncı yüksek", "Debimetre hatalı ölçüyor"],
+      "actions": ["Hava filtresini kontrol et", "P0172 ile birlikteyse önce debimetre ve yakıt basıncına baktır", "Uzun süre böyle kullanma; katalizöre zarar verir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0190",
+      "title": "Yakıt rampası basınç sensörü devresi",
+      "meaning": "Yakıt rampasındaki basıncı ölçen sensörden sinyal alınamıyor. Dizellerde motor çalışmayabilir veya güç kesebilir.",
+      "causes": ["Rampa basınç sensörü arızası", "Soket temassızlığı veya oksit", "Kablo hasarı"],
+      "actions": ["Sensör soketini kontrol ettir", "Sensörü test ettir; çoğu dizelde sensör rampayla birlikte değişir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0191",
+      "title": "Yakıt rampası basınç sensörü ölçüm aralığı/performans",
+      "meaning": "Rampa basınç sensörünün değeri motorun çalışma durumuna göre mantıksız. Dizellerde zor çalışma ve güç kaybı görülür.",
+      "causes": ["Yakıt filtresi tıkalı", "Rampa basınç sensörü hatalı ölçüyor", "Basınç regülatörü arızası", "Yakıtta hava"],
+      "actions": ["Yakıt filtresi bakımı geçtiyse önce filtreyi değiştir", "Sensör ve regülatörü kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0192",
+      "title": "Yakıt rampası basınç sensörü – düşük sinyal",
+      "meaning": "Rampa basınç sensöründen gelen sinyal olması gerekenden düşük. Motor çalışmayabilir veya acil moda geçebilir.",
+      "causes": ["Sensör beslemesi kopuk", "Sinyal kablosu şaseye kaçak", "Sensör arızası"],
+      "actions": ["Soket ve kabloyu kontrol ettir", "Sensör beslemesini ölçtür"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0193",
+      "title": "Yakıt rampası basınç sensörü – yüksek sinyal",
+      "meaning": "Rampa basınç sensöründen gelen sinyal olması gerekenden yüksek. Motor beyni basıncı güvenli sınırda tutmak için gücü kısabilir.",
+      "causes": ["Şase bağlantısı kopuk", "Sinyal kablosu beslemeye kısa devre", "Sensör arızası"],
+      "actions": ["Soket ve şase bağlantısını kontrol ettir", "Sensörü test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0200",
+      "title": "Enjektör devresi arızası",
+      "meaning": "Motor beyni enjektörlerden en az birinin elektrik devresinde sorun görüyor. Motor tekleyebilir veya hiç çalışmayabilir.",
+      "causes": ["Enjektör bobini arızalı", "Enjektör soketi veya kablo demeti hasarlı", "Enjektör besleme rölesi/sigortası sorunu", "Motor beyni sürücü devresi arızası"],
+      "actions": ["Hangi silindir olduğunu görmek için diğer kodlara bak (P0201–P0204)", "Enjektör soketlerini ve kablo demetini kontrol ettir"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0201",
+      "title": "1. silindir enjektör devresi",
+      "meaning": "1 numaralı silindirin enjektöründe elektrik sorunu var. O silindir yakıt alamadığı için motor tekler.",
+      "causes": ["1. silindir enjektörü arızalı", "Enjektör soketi çıkmış", "Kablo kopuk veya kısa devre"],
+      "actions": ["Enjektör soketini kontrol et", "Enjektör direncini ölçtür, arızalıysa değiştir", "Teklerken aracı zorlama; katalizöre zarar verir"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0202",
+      "title": "2. silindir enjektör devresi",
+      "meaning": "2 numaralı silindirin enjektöründe elektrik sorunu var. O silindir yakıt alamadığı için motor tekler.",
+      "causes": ["2. silindir enjektörü arızalı", "Enjektör soketi çıkmış", "Kablo kopuk veya kısa devre"],
+      "actions": ["Enjektör soketini kontrol et", "Enjektör direncini ölçtür, arızalıysa değiştir", "Teklerken aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0203",
+      "title": "3. silindir enjektör devresi",
+      "meaning": "3 numaralı silindirin enjektöründe elektrik sorunu var. O silindir yakıt alamadığı için motor tekler.",
+      "causes": ["3. silindir enjektörü arızalı", "Enjektör soketi çıkmış", "Kablo kopuk veya kısa devre"],
+      "actions": ["Enjektör soketini kontrol et", "Enjektör direncini ölçtür, arızalıysa değiştir", "Teklerken aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0204",
+      "title": "4. silindir enjektör devresi",
+      "meaning": "4 numaralı silindirin enjektöründe elektrik sorunu var. O silindir yakıt alamadığı için motor tekler.",
+      "causes": ["4. silindir enjektörü arızalı", "Enjektör soketi çıkmış", "Kablo kopuk veya kısa devre"],
+      "actions": ["Enjektör soketini kontrol et", "Enjektör direncini ölçtür, arızalıysa değiştir", "Teklerken aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0217",
+      "title": "Motor aşırı ısındı (hararet)",
+      "meaning": "Motor suyu sıcaklığı güvenli sınırın üzerine çıktı. Devam etmek silindir kapak contası yakabilir veya motoru kalıcı olarak bozabilir.",
+      "causes": ["Motor suyu eksik veya kaçak var", "Fan çalışmıyor", "Termostat kapalı kalmış", "Su pompası arızası", "Radyatör tıkalı"],
+      "actions": ["Güvenli bir yerde HEMEN dur ve motoru kapat", "Motor soğumadan radyatör kapağını açma", "Aracı çektirerek servise götür"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0220",
+      "title": "Gaz kelebeği/pedal konum sensörü B devresi",
+      "meaning": "Gaz kelebeği veya pedal konum sensörünün ikinci (B) devresinde sorun var. Araç güç kısıtlamalı acil moda geçebilir.",
+      "causes": ["Sensör arızası", "Soket temassızlığı", "Kablo hasarı"],
+      "actions": ["Gaz kelebeği ve pedal soketlerini kontrol et", "Sensörü test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0221",
+      "title": "Gaz kelebeği/pedal konum sensörü B ölçüm aralığı/performans",
+      "meaning": "Konum sensörü B'nin değeri, A sensörüyle ya da motor yüküyle uyumlu değil. Gaz tepkisi kararsız olabilir.",
+      "causes": ["Gaz kelebeği kirli", "Sensör içi aşınma", "Soket temassızlığı"],
+      "actions": ["Gaz kelebeğini temizlet ve öğrenme işlemi yaptır", "Sorun sürerse gaz kelebeği gövdesini değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0234",
+      "title": "Turbo basıncı aşırı yüksek (overboost)",
+      "meaning": "Turbo, motor beyninin izin verdiğinden fazla basınç üretiyor. Motoru korumak için güç kesilir; devam etmek motora zarar verebilir.",
+      "causes": ["Turbo kanatçık (VNT) mekanizması takılı kalmış", "Wastegate kapalı kalmış", "Turbo kontrol valfi veya vakum hortumu arızası", "Turbo basınç sensörü hatalı ölçüyor"],
+      "actions": ["Aracı zorlama, mümkünse servise götür", "Turbo kontrol valfi ve vakum hortumlarını kontrol ettir", "VNT mekanizmasının serbest hareket ettiğini kontrol ettir"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0235",
+      "title": "Turbo basınç sensörü A devresi",
+      "meaning": "Turbo basıncını ölçen sensörden sinyal alınamıyor. Motor beyni turboyu kontrol edemediği için gücü kısar.",
+      "causes": ["Basınç sensörü soketi çıkmış", "Sensör yağla kirlenmiş", "Kablo hasarı", "Sensör arızası"],
+      "actions": ["Sensör soketini kontrol et", "Sensörü temizlet veya test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0236",
+      "title": "Turbo basınç sensörü A ölçüm aralığı/performans",
+      "meaning": "Turbo basınç sensörünün değeri, motorun çalışma durumuna göre mantıksız. Araç acil moda geçebilir.",
+      "causes": ["Turbo/intercooler hortumunda kaçak", "Sensör yağla kirlenmiş", "Sensör arızası", "Turbo kontrol valfi sorunu"],
+      "actions": ["Turbo hortumlarında yağlanma ve yırtık ara", "Sensörü temizlet veya değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0237",
+      "title": "Turbo basınç sensörü A – düşük sinyal",
+      "meaning": "Turbo basınç sensöründen gelen sinyal olması gerekenden düşük. Genellikle devre açık ya da şaseye kaçak vardır.",
+      "causes": ["Sensör beslemesi kopuk", "Sinyal kablosu şaseye kaçak", "Sensör arızası"],
+      "actions": ["Soket ve kabloyu kontrol ettir", "Sensörü test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0238",
+      "title": "Turbo basınç sensörü A – yüksek sinyal",
+      "meaning": "Turbo basınç sensöründen gelen sinyal olması gerekenden yüksek. Motor beyni aşırı basınç sanıp gücü kesebilir.",
+      "causes": ["Şase bağlantısı kopuk", "Sinyal kablosu beslemeye kısa devre", "Sensör arızası"],
+      "actions": ["Soket ve şase bağlantısını kontrol ettir", "Sensörü test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0305",
+      "title": "5. silindirde ateşleme hatası (tekleme)",
+      "meaning": "Motor beyni 5 numaralı silindirde yanmanın düzgün gerçekleşmediğini tespit etti.",
+      "causes": ["5. silindir bujisi", "5. silindir ateşleme bobini", "5. silindir enjektörü", "5. silindirde kompresyon kaybı"],
+      "actions": ["Bobinin yerini başka bir silindirle değiştirip kodun taşınıp taşınmadığına baktır", "Arıza lambası yanıp sönüyorsa aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0306",
+      "title": "6. silindirde ateşleme hatası (tekleme)",
+      "meaning": "Motor beyni 6 numaralı silindirde yanmanın düzgün gerçekleşmediğini tespit etti.",
+      "causes": ["6. silindir bujisi", "6. silindir ateşleme bobini", "6. silindir enjektörü", "6. silindirde kompresyon kaybı"],
+      "actions": ["Bobinin yerini başka bir silindirle değiştirip kodun taşınıp taşınmadığına baktır", "Arıza lambası yanıp sönüyorsa aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0316",
+      "title": "İlk çalıştırmada tekleme (ilk 1000 devir)",
+      "meaning": "Motor ilk çalıştığı anlarda tekledi. Çoğu zaman soğukta nem, zayıf ateşleme ya da yakıt basıncının geç oluşmasından kaynaklanır.",
+      "causes": ["Bujiler veya bobinler zayıf", "Yakıt pompası basıncı geç oluşuyor", "Enjektör kaçırıyor", "Soğuk ve nemli havada ateşleme sorunu"],
+      "actions": ["Bujilerin bakım zamanını kontrol et", "Kod tekrar ediyorsa yakıt basıncını ölçtür", "Başka tekleme kodu (P0300–P0306) varsa önce onlara bak"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0325",
+      "title": "Vuruntu sensörü 1 devresi (Bank 1)",
+      "meaning": "Motordaki vuruntuyu (detonasyon) dinleyen sensörden sinyal alınamıyor. Motor beyni korunmak için avansı geri alır, araç çekişsizleşebilir.",
+      "causes": ["Vuruntu sensörü soketi çıkmış veya oksitlenmiş", "Kablo hasarı", "Sensör arızası", "Sensör sıkma torku yanlış"],
+      "actions": ["Sensör soketini ve kablosunu kontrol ettir", "Sensör arızalıysa değiştir ve doğru torkla sıktır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0327",
+      "title": "Vuruntu sensörü 1 – düşük sinyal (Bank 1)",
+      "meaning": "Vuruntu sensöründen gelen sinyal olması gerekenden düşük. Motor beyni vuruntuyu duyamayacağı için ateşleme avansını kısıtlar.",
+      "causes": ["Sensör soketi temassız", "Kablo kopuk", "Sensör gevşek veya arızalı"],
+      "actions": ["Soketi ve kabloyu kontrol ettir", "Sensörü doğru torkla sıktır veya değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0328",
+      "title": "Vuruntu sensörü 1 – yüksek sinyal (Bank 1)",
+      "meaning": "Vuruntu sensöründen gelen sinyal olması gerekenden yüksek. Gerçek vuruntu ya da elektriksel parazit olabilir.",
+      "causes": ["Gerçek vuruntu (kalitesiz yakıt, aşırı avans)", "Kablo parazit alıyor veya kısa devre", "Motor mekanik gürültüsü (gevşek parça)", "Sensör arızası"],
+      "actions": ["Kaliteli yakıt kullan, sorun sürüyor mu gözle", "Kablo yolunu kontrol ettir", "Motordan anormal ses varsa mekanik kontrol yaptır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0336",
+      "title": "Krank mili konum sensörü ölçüm aralığı/performans",
+      "meaning": "Krank sensöründen sinyal geliyor ama düzensiz ya da mantıksız. Motor tekleyebilir, stop edebilir veya geç çalışabilir.",
+      "causes": ["Krank sensörü kirli veya arızalı", "Volan/endüksiyon dişlisinde hasar", "Sensör ile dişli arasında yanlış mesafe", "Kablo parazit alıyor"],
+      "actions": ["Uzun yola çıkma; motor yolda stop edebilir", "Sensörü sökerek kir ve hasar kontrolü yaptır", "Sorun sürerse sensörü değiştir"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0341",
+      "title": "Eksantrik mili konum sensörü ölçüm aralığı/performans (Sensör A)",
+      "meaning": "Kam sensöründen sinyal geliyor ama krank sinyaline göre düzensiz ya da zamansız. Marş uzun basabilir, motor tekleyebilir.",
+      "causes": ["Kam sensörü kirli veya arızalı", "Triger zamanlaması kaymış", "Sensör kablosu parazit alıyor", "Kam tetik dişlisi hasarlı"],
+      "actions": ["Sensörü ve soketini kontrol ettir", "Yakın zamanda triger değişimi yapıldıysa zamanlamayı kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0342",
+      "title": "Eksantrik mili konum sensörü – düşük sinyal (Sensör A)",
+      "meaning": "Kam sensöründen gelen sinyal olması gerekenden düşük; genellikle devre açık ya da şaseye kaçak var.",
+      "causes": ["Sensör beslemesi kopuk", "Sinyal kablosu şaseye kaçak", "Sensör arızası"],
+      "actions": ["Soket ve kabloyu kontrol ettir", "Sensör beslemesini ölçtür, arızalıysa sensörü değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0343",
+      "title": "Eksantrik mili konum sensörü – yüksek sinyal (Sensör A)",
+      "meaning": "Kam sensöründen gelen sinyal olması gerekenden yüksek; genellikle şase bağlantısı kopuk ya da kısa devre var.",
+      "causes": ["Şase bağlantısı kopuk", "Sinyal kablosu beslemeye kısa devre", "Sensör arızası"],
+      "actions": ["Soket ve şase bağlantısını kontrol ettir", "Sensörü test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0351",
+      "title": "Ateşleme bobini A devresi (1. silindir)",
+      "meaning": "Birinci ateşleme bobininin devresinde elektrik sorunu var. İlgili silindir ateşlenemediği için motor tekler.",
+      "causes": ["Ateşleme bobini arızası", "Bobin soketi çıkmış veya oksitlenmiş", "Kablo kopuk", "Motor beyni sürücü devresi arızası"],
+      "actions": ["Bobin soketini kontrol et", "Bobini başka silindirle yer değiştirerek test ettir", "Teklerken aracı zorlama; katalizöre zarar verir"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0352",
+      "title": "Ateşleme bobini B devresi (2. silindir)",
+      "meaning": "İkinci ateşleme bobininin devresinde elektrik sorunu var. İlgili silindir ateşlenemediği için motor tekler.",
+      "causes": ["Ateşleme bobini arızası", "Bobin soketi çıkmış veya oksitlenmiş", "Kablo kopuk"],
+      "actions": ["Bobin soketini kontrol et", "Bobini başka silindirle yer değiştirerek test ettir", "Teklerken aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0353",
+      "title": "Ateşleme bobini C devresi (3. silindir)",
+      "meaning": "Üçüncü ateşleme bobininin devresinde elektrik sorunu var. İlgili silindir ateşlenemediği için motor tekler.",
+      "causes": ["Ateşleme bobini arızası", "Bobin soketi çıkmış veya oksitlenmiş", "Kablo kopuk"],
+      "actions": ["Bobin soketini kontrol et", "Bobini başka silindirle yer değiştirerek test ettir", "Teklerken aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0354",
+      "title": "Ateşleme bobini D devresi (4. silindir)",
+      "meaning": "Dördüncü ateşleme bobininin devresinde elektrik sorunu var. İlgili silindir ateşlenemediği için motor tekler.",
+      "causes": ["Ateşleme bobini arızası", "Bobin soketi çıkmış veya oksitlenmiş", "Kablo kopuk"],
+      "actions": ["Bobin soketini kontrol et", "Bobini başka silindirle yer değiştirerek test ettir", "Teklerken aracı zorlama"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0381",
+      "title": "Kızdırma bujisi gösterge lambası devresi (dizel)",
+      "meaning": "Gösterge panelindeki kızdırma (helezon) lambasının devresinde sorun var. Kızdırma süresini lambadan takip edemezsin.",
+      "causes": ["Gösterge paneli lambası veya devresi arızası", "Kablo/soket sorunu", "Kızdırma kontrol ünitesi arızası"],
+      "actions": ["Soğukta kontağı açıp birkaç saniye bekledikten sonra çalıştır", "Gösterge ve kızdırma ünitesi bağlantılarını kontrol ettir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0400",
+      "title": "EGR sistemi akış arızası",
+      "meaning": "Egzoz gazının bir kısmını motora geri gönderen EGR sisteminde akış beklenen değerde değil. Dizellerde kurumlanma çok yaygındır.",
+      "causes": ["EGR valfi kurumla tıkanmış veya takılı", "EGR kanalları tıkalı", "EGR kontrol selenoidi veya vakum hortumu arızası", "EGR konum sensörü hatası"],
+      "actions": ["EGR valfi ve kanallarını temizlet", "Vakum hortumlarını kontrol ettir", "Temizlik yetmezse valfi değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0403",
+      "title": "EGR kontrol devresi arızası",
+      "meaning": "EGR valfini kumanda eden elektrik devresinde sorun var. Valf istenen konuma getirilemiyor.",
+      "causes": ["EGR valfi motoru/selenoidi arızalı", "Soket temassızlığı veya oksit", "Kablo kopuk"],
+      "actions": ["EGR valfi soketini kontrol et", "Valfi test ettir, arızalıysa değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0404",
+      "title": "EGR kontrol devresi ölçüm aralığı/performans",
+      "meaning": "EGR valfinin gerçek konumu, motor beyninin istediği konumla uyuşmuyor. Valf kurum yüzünden sıkışıyor olabilir.",
+      "causes": ["EGR valfi kurumla sıkışmış", "Valf konum sensörü arızası", "Valf motoru zayıflamış"],
+      "actions": ["EGR valfini temizlet ve öğrenme işlemi yaptır", "Sorun sürerse valfi değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0405",
+      "title": "EGR konum sensörü A – düşük sinyal",
+      "meaning": "EGR valfinin konumunu bildiren sensörden gelen sinyal olması gerekenden düşük.",
+      "causes": ["Sensör beslemesi kopuk", "Sinyal kablosu şaseye kaçak", "EGR valfi üzerindeki sensör arızası"],
+      "actions": ["Soket ve kabloyu kontrol ettir", "Sensör valfle birlikteyse EGR valfini değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0406",
+      "title": "EGR konum sensörü A – yüksek sinyal",
+      "meaning": "EGR valfinin konumunu bildiren sensörden gelen sinyal olması gerekenden yüksek.",
+      "causes": ["Şase bağlantısı kopuk", "Sinyal kablosu beslemeye kısa devre", "Sensör arızası"],
+      "actions": ["Soket ve şase bağlantısını kontrol ettir", "Gerekirse EGR valfini değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0410",
+      "title": "İkincil hava enjeksiyon sistemi arızası",
+      "meaning": "Soğuk çalıştırmada egzoza ek hava basan sistem (ikincil hava pompası) beklendiği gibi çalışmıyor. Sürüşü genellikle etkilemez.",
+      "causes": ["İkincil hava pompası arızalı veya içine su almış", "Hava valfi takılı", "Pompa rölesi veya sigortası arızası", "Hortum çatlak"],
+      "actions": ["Soğuk çalıştırmada pompa sesi geliyor mu dinle", "Röle, sigorta ve hortumları kontrol ettir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0421",
+      "title": "Isınma aşamasında katalizör verimi düşük – Bank 1",
+      "meaning": "Katalizör, motor ısınırken zararlı gazları yeterince temizleyemiyor. Muayenede emisyon testinden kalma riski vardır.",
+      "causes": ["Katalizör yaşlanmış", "Arka oksijen sensörü hatalı", "Egzoz kaçağı", "Uzun süreli tekleme geçmişi"],
+      "actions": ["Önce egzoz kaçağı ve oksijen sensörlerini kontrol ettir", "Başka motor kodları varsa önce onları çöz", "Katalizör değişimi son çare"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0440",
+      "title": "Yakıt buharı (EVAP) sistemi arızası",
+      "meaning": "Yakıt deposundan çıkan buharları toplayan sistemde genel bir arıza var. Sürüşü etkilemez, hafif benzin kokusu olabilir.",
+      "causes": ["Depo kapağı gevşek veya contası yıpranmış", "EVAP hortumu çatlak", "Kanister veya valf arızası"],
+      "actions": ["Depo kapağını kontrol et", "Kod geri gelirse EVAP sistemine duman testi yaptır"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0441",
+      "title": "Yakıt buharı (EVAP) tahliye akışı hatalı",
+      "meaning": "Kanisterde biriken yakıt buharının motora çekilmesi beklenen şekilde gerçekleşmiyor.",
+      "causes": ["Kanister tahliye (purge) valfi takılı", "Tahliye hortumu tıkalı veya kopuk", "Kanister doymuş/tıkalı"],
+      "actions": ["Tahliye valfini ve hortumunu kontrol ettir", "Depoyu taşırana kadar doldurma alışkanlığını bırak; kanisteri bozar"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0443",
+      "title": "Yakıt buharı (EVAP) tahliye valfi devresi",
+      "meaning": "Kanister tahliye valfinin elektrik devresinde sorun var. Rölanti hafif dalgalanabilir.",
+      "causes": ["Tahliye valfi selenoidi arızalı", "Soket çıkmış veya oksitlenmiş", "Kablo kopuk"],
+      "actions": ["Valf soketini kontrol et", "Valfi test ettir, arızalıysa değiştir (genellikle ucuz bir parçadır)"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0446",
+      "title": "Yakıt buharı (EVAP) havalandırma valfi devresi",
+      "meaning": "EVAP sisteminin havalandırma valfi kumanda edilemiyor veya tıkalı. Depo dolumunda yakıt tabancası erken atabilir.",
+      "causes": ["Havalandırma valfi arızalı veya kirle tıkanmış", "Soket/kablo sorunu", "Kanister havalandırma hattı tıkalı"],
+      "actions": ["Valf ve hattı kontrol ettir", "Gerekirse havalandırma valfini değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0457",
+      "title": "Yakıt buharı (EVAP) kaçağı – depo kapağı gevşek veya yok",
+      "meaning": "EVAP sisteminde kaçak var ve motor beyni bunu büyük olasılıkla depo kapağına bağlıyor. Sürüşü etkilemez.",
+      "causes": ["Depo kapağı açık unutulmuş veya tam kapanmamış", "Depo kapağı contası yıpranmış", "Dolum ağzında hasar"],
+      "actions": ["Depo kapağını 'klik' sesi gelene kadar kapat", "Kod birkaç sürüş sonra kendiliğinden kalkar; kalkmazsa kapağı değiştir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0471",
+      "title": "Egzoz basınç sensörü A ölçüm aralığı/performans",
+      "meaning": "Egzoz basıncını (çoğu dizelde DPF fark basıncını) ölçen sensörün değeri mantıksız. DPF temizliği doğru yönetilemeyebilir.",
+      "causes": ["Sensör hortumu çatlak, kopuk veya tıkalı", "Basınç sensörü arızası", "DPF aşırı dolu"],
+      "actions": ["Sensör hortumlarını kontrol ettir", "Sensörü test ettir", "DPF ile ilgili başka kod varsa birlikte değerlendirilmeli"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0480",
+      "title": "Soğutma fanı 1 kontrol devresi",
+      "meaning": "Radyatör fanını kumanda eden devrede sorun var. Fan çalışmazsa özellikle trafikte ve klimada motor hararet yapabilir.",
+      "causes": ["Fan rölesi veya sigortası arızası", "Fan motoru arızası", "Fan kontrol modülü/direnci arızası", "Kablo/soket sorunu"],
+      "actions": ["Hararet göstergesini sürekli takip et", "Motor ısındığında fanın dönüp dönmediğini kontrol et", "Röle, sigorta ve fan motorunu kontrol ettir"],
+      "severity": "high",
+      "drivable": true
+    },
+    {
+      "code": "P0501",
+      "title": "Araç hız sensörü ölçüm aralığı/performans",
+      "meaning": "Hız sensöründen gelen bilgi diğer verilerle (ör. ABS tekerlek hızları, motor devri) uyumlu değil.",
+      "causes": ["Hız sensörü kirli veya arızalı", "ABS tekerlek sensörü sorunu", "Lastik ebatları orijinalden farklı", "Kablo parazit alıyor"],
+      "actions": ["Kilometre saatinin doğru çalışıp çalışmadığına bak", "ABS lambası da yanıyorsa ABS sensörlerine baktır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0504",
+      "title": "Fren pedalı müşiri A/B uyumsuzluğu",
+      "meaning": "Fren pedalındaki iki ayrı sinyal birbirini tutmuyor. Hız sabitleyici, start-stop çalışmayabilir; fren lambaları etkilenebilir.",
+      "causes": ["Fren müşiri arızalı veya ayarı bozuk", "Müşir soketi temassız", "Fren lambası sigortası atmış"],
+      "actions": ["Fren lambalarının yanıp yanmadığını birine kontrol ettir", "Fren müşirini kontrol ettir; ucuz bir parçadır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0506",
+      "title": "Rölanti devri beklenenden düşük",
+      "meaning": "Motor rölantide olması gerekenden düşük devirde çalışıyor. Titreme veya stop etme görülebilir.",
+      "causes": ["Gaz kelebeği kirli", "Rölanti valfi arızası", "Motora ek yük (klima, alternatör) ve zayıf rölanti kontrolü", "Vakum kaçağı"],
+      "actions": ["Gaz kelebeğini temizlet ve rölanti öğrenme işlemi yaptır", "Akü yeni sökülüp takıldıysa öğrenme gerekebilir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0520",
+      "title": "Motor yağ basıncı sensörü/müşiri devresi",
+      "meaning": "Yağ basıncı sensörünün devresinde sorun var. Yağ basıncı gerçekten düşük olabilir de, sadece sensör arızası da olabilir.",
+      "causes": ["Yağ basınç müşiri arızalı veya yağ kaçırıyor", "Soket çıkmış", "Kablo hasarı"],
+      "actions": ["Önce yağ seviyesini kontrol et", "Yağ lambası yanıyorsa motoru çalıştırma", "Müşiri ve soketini kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0521",
+      "title": "Motor yağ basıncı sensörü ölçüm aralığı/performans",
+      "meaning": "Yağ basıncı sensörünün değeri motor devrine göre mantıksız. Gerçek bir yağ basıncı sorunu da olabilir.",
+      "causes": ["Yağ seviyesi düşük", "Yanlış viskozitede veya eski yağ", "Yağ basınç sensörü arızası", "Yağ pompası veya süzgeç sorunu"],
+      "actions": ["Yağ seviyesini hemen kontrol et", "Bakım geçtiyse yağ ve filtreyi değiştir", "Yağ basıncını mekanik saatle ölçtür"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0524",
+      "title": "Motor yağ basıncı çok düşük",
+      "meaning": "Motor yağ basıncı güvenli sınırın altında. Bu durumda çalışmaya devam etmek motoru kısa sürede kalıcı olarak bozabilir.",
+      "causes": ["Yağ seviyesi çok düşük", "Yağ pompası arızası", "Yağ süzgeci tıkalı", "Motor yatakları aşınmış"],
+      "actions": ["Güvenli bir yerde HEMEN dur ve motoru kapat", "Yağ seviyesini kontrol et; eksikse tamamla", "Yağ tamamken lamba/kod sürüyorsa aracı çektirerek servise götür"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0560",
+      "title": "Sistem voltajı arızası",
+      "meaning": "Motor beyni araç elektrik voltajını mantıksız ölçüyor; voltaj dalgalanıyor olabilir.",
+      "causes": ["Akü zayıf", "Alternatör regülatörü arızası", "Akü kutup başları gevşek veya oksitli", "Şase bağlantısı kötü"],
+      "actions": ["Akü kutup başlarını kontrol et", "Akü ve şarj testi yaptır", "Canlı veride motor çalışırken voltaj 13,5–14,5 V arasında olmalı"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0563",
+      "title": "Sistem voltajı yüksek",
+      "meaning": "Araç elektrik voltajı olması gerekenden yüksek. Uzun sürerse akü ve elektronik parçalar zarar görebilir.",
+      "causes": ["Alternatör voltaj regülatörü arızası", "Akü sensörü hatalı ölçüyor", "Takviye/şarj cihazı bağlı unutulmuş"],
+      "actions": ["Canlı veride voltajı takip et; 15 V üzeri tehlikelidir", "Şarj sistemini kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0597",
+      "title": "Termostat ısıtıcı kontrol devresi açık",
+      "meaning": "Elektronik kontrollü (ısıtıcılı) termostatın ısıtıcı devresi kopuk. Motor istenen sıcaklıkta tutulamayabilir.",
+      "causes": ["Termostat ısıtıcı elemanı yanmış", "Soket çıkmış veya oksitlenmiş", "Kablo kopuk"],
+      "actions": ["Termostat soketini kontrol ettir", "Isıtıcı arızalıysa termostat komple değişir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0601",
+      "title": "Motor beyni dahili hafıza (checksum) hatası",
+      "meaning": "Motor beyni kendi yazılımını kontrol ederken hata buldu. Yazılım bozulmuş ya da beyin donanımı arızalı olabilir.",
+      "causes": ["Yarım kalmış yazılım güncellemesi veya chip tuning", "Voltaj dalgalanması", "Motor beyni donanım arızası"],
+      "actions": ["Akü ve şarj sistemini kontrol ettir", "Yetkili serviste beyin yazılımını yeniden yükletmek gerekebilir", "Araç çalışmıyor ya da stop ediyorsa çektirerek götür"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0627",
+      "title": "Yakıt pompası kontrol devresi açık",
+      "meaning": "Yakıt pompasını kumanda eden devre kopuk. Motor çalışmayabilir veya yolda stop edebilir.",
+      "causes": ["Yakıt pompası rölesi veya sigortası arızası", "Yakıt pompası kontrol modülü arızası", "Depo üstündeki soket oksitlenmiş", "Kablo kopuk"],
+      "actions": ["Yakıt pompası sigortası ve rölesini kontrol ettir", "Kontak açılınca depodan pompa sesi geliyor mu dinle", "Motor stop ediyorsa uzun yola çıkma"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0670",
+      "title": "Kızdırma bujisi kontrol modülü devresi (dizel)",
+      "meaning": "Kızdırma bujilerini yöneten modülün devresinde sorun var. Özellikle soğukta motor zor çalışır, ilk çalışmada beyaz duman olabilir.",
+      "causes": ["Kızdırma kontrol modülü/rölesi arızası", "Modül soketi oksitlenmiş", "Kablo hasarı"],
+      "actions": ["Kış gelmeden kızdırma sistemini kontrol ettir", "Modül ve bujileri birlikte test ettir"],
+      "severity": "low",
+      "drivable": true
+    },
+    {
+      "code": "P0715",
+      "title": "Şanzıman giriş/türbin devir sensörü devresi",
+      "meaning": "Otomatik şanzımanın giriş devrini ölçen sensörden sinyal alınamıyor. Şanzıman acil moda geçip tek viteste kalabilir.",
+      "causes": ["Giriş devir sensörü arızası", "Soket veya kablo hasarı", "Şanzıman beyni arızası"],
+      "actions": ["Vites geçişleri bozuksa aracı zorlama", "Şanzıman beynini okuyabilen bir cihazla taratıp sensörü kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0730",
+      "title": "Hatalı vites oranı",
+      "meaning": "Şanzımanın giriş ve çıkış devirleri seçili vitesle uyuşmuyor. Kavrama kaçırıyor (vites boşa düşüyor) olabilir.",
+      "causes": ["Şanzıman yağı az veya bozulmuş", "Şanzıman içi kavrama/disk aşınması", "Vites selenoidi arızası", "Devir sensörü hatası"],
+      "actions": ["Aracı zorlama; kayma devam ederse şanzıman kalıcı hasar görebilir", "Şanzıman yağı seviyesini ve durumunu kontrol ettir", "Otomatik şanzıman servisine götür"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "P0740",
+      "title": "Tork konvertörü kilitleme kavraması devresi",
+      "meaning": "Otomatik şanzımanda tork konvertörünü kilitleyen kavramanın devresinde sorun var. Yakıt tüketimi artar, şanzıman ısınabilir.",
+      "causes": ["Kilitleme selenoidi arızası", "Şanzıman soketi veya kablo sorunu", "Şanzıman beyni arızası"],
+      "actions": ["Şanzıman soketini kontrol ettir", "Otomatik şanzıman servisinde selenoidi test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0741",
+      "title": "Tork konvertörü kilitleme kavraması – performans/takılı açık",
+      "meaning": "Tork konvertörü kilitleme kavraması devreye giremiyor. Yolda devir yüksek kalır, yakıt tüketimi artar.",
+      "causes": ["Şanzıman yağı eski veya az", "Kilitleme selenoidi arızası", "Tork konvertörü içi aşınma"],
+      "actions": ["Şanzıman yağını kontrol ettir; bakım geçtiyse yağı değiştir", "Sorun sürerse otomatik şanzıman servisine götür"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P0750",
+      "title": "Vites selenoidi A arızası",
+      "meaning": "Otomatik şanzımandaki A vites selenoidinin devresinde sorun var. Şanzıman bazı viteslere geçemeyebilir veya acil moda girebilir.",
+      "causes": ["Vites selenoidi arızası", "Şanzıman soketi oksitlenmiş", "Şanzıman yağı kirli", "Kablo hasarı"],
+      "actions": ["Şanzıman soketini ve yağını kontrol ettir", "Otomatik şanzıman servisinde selenoidi test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2096",
+      "title": "Katalizör sonrası yakıt düzeltme çok fakir – Bank 1",
+      "meaning": "Katalizör sonrasındaki oksijen sensörü karışımın sürekli fakir kaldığını görüyor; motor beyni düzeltme sınırına geldi.",
+      "causes": ["Katalizör civarında egzoz kaçağı", "Vakum kaçağı", "Arka oksijen sensörü hatalı ölçüyor", "Yakıt basıncı düşük"],
+      "actions": ["Egzoz bağlantılarında kaçak ara", "Karışımla ilgili başka kodlar (P0171) varsa onlarla birlikte değerlendir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2097",
+      "title": "Katalizör sonrası yakıt düzeltme çok zengin – Bank 1",
+      "meaning": "Katalizör sonrasındaki oksijen sensörü karışımın sürekli zengin kaldığını görüyor. Yakıt tüketimi artar, katalizör zarar görebilir.",
+      "causes": ["Enjektör kaçırıyor", "Ön oksijen sensörü yanlış ölçüyor", "Katalizör arızası", "Yakıt basıncı yüksek"],
+      "actions": ["Enjektörleri ve yakıt basıncını kontrol ettir", "Oksijen sensörlerini canlı veride karşılaştır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2135",
+      "title": "Gaz kelebeği/pedal konum sensörü A–B voltaj uyumsuzluğu",
+      "meaning": "Elektronik gaz kelebeğindeki iki konum sensörü farklı değerler gösteriyor. Güvenlik için araç acil moda geçer, güç ciddi şekilde kısılır.",
+      "causes": ["Gaz kelebeği gövdesi arızası", "Soket temassızlığı veya oksit", "Kablo hasarı", "Gaz pedalı sensörü arızası"],
+      "actions": ["Gaz kelebeği soketini kontrol ettir", "Gaz kelebeğini temizlet; düzelmezse gövdeyi değiştir", "Acil modda yoğun trafiğe ve otoyola çıkma"],
+      "severity": "high",
+      "drivable": true
+    },
+    {
+      "code": "P2187",
+      "title": "Rölantide karışım çok fakir – Bank 1",
+      "meaning": "Karışım sadece rölantide fakirleşiyor. Bu, büyük olasılıkla rölantide etkisi büyük olan küçük bir vakum kaçağına işaret eder.",
+      "causes": ["Vakum hortumu çatlak", "Emme manifoldu contası kaçırıyor", "PCV (karter havalandırma) valfi arızası", "Fren servosu hortumu kaçırıyor"],
+      "actions": ["Rölantide emme tarafında ıslık sesi ara", "Duman testiyle vakum kaçağı aratmak en hızlı yoldur"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2188",
+      "title": "Rölantide karışım çok zengin – Bank 1",
+      "meaning": "Karışım sadece rölantide zenginleşiyor. Kaçıran bir enjektör veya kanister tahliye valfi sorunu olabilir.",
+      "causes": ["Enjektör kaçırıyor", "Kanister tahliye valfi açık kalmış", "Yakıt basıncı yüksek", "Hava filtresi tıkalı"],
+      "actions": ["Kanister tahliye valfini kontrol ettir", "Enjektörleri test ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2195",
+      "title": "Ön oksijen sensörü sinyali fakirde takılı – Bank 1 Sensör 1",
+      "meaning": "Ön oksijen sensörü sürekli fakir karışım gösteriyor ve motor beyni zenginleştirse de değişmiyor.",
+      "causes": ["Oksijen sensörü yaşlanmış", "Sensör önünde egzoz kaçağı", "Vakum kaçağı", "Yakıt basıncı düşük"],
+      "actions": ["Egzoz ve vakum kaçağı ara", "Kaçak yoksa ön oksijen sensörünü değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2263",
+      "title": "Turbo basınç sistemi performansı",
+      "meaning": "Turbo sistemi motor beyninin beklediği basıncı sağlayamıyor (az veya çok). Araç güç kaybeder ve acil moda geçebilir.",
+      "causes": ["Turbo/intercooler hortumunda kaçak", "Turbo kontrol valfi veya vakum hortumu arızası", "VNT kanatçıkları kurumlanmış", "Turbo basınç sensörü hatası"],
+      "actions": ["Turbo hortumlarında yırtık ve yağlanma ara", "Vakum hortumlarını ve kontrol valfini kontrol ettir", "Turbodan ıslık sesi geliyorsa vakit kaybetmeden servise git"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2279",
+      "title": "Emme havası sisteminde kaçak",
+      "meaning": "Motor beyni, ölçülmeden motora giren havayı fark etti. Rölanti dalgalanır, karışım fakirleşir.",
+      "causes": ["Emme hortumu veya kelepçe gevşek/yırtık", "Emme manifoldu contası kaçırıyor", "PCV hortumu çatlak", "Fren servosu hortumu kaçırıyor"],
+      "actions": ["Debimetreden sonraki tüm hortum ve kelepçeleri kontrol et", "Gerekirse duman testi yaptır"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2452",
+      "title": "Dizel partikül filtresi (DPF) basınç sensörü A devresi",
+      "meaning": "DPF'nin doluluğunu ölçen fark basınç sensöründen sinyal alınamıyor. Filtrenin kendini temizlemesi yönetilemez.",
+      "causes": ["Fark basınç sensörü arızası", "Soket oksitlenmiş", "Kablo egzoz ısısından zarar görmüş"],
+      "actions": ["Sensör soketini ve kablo yolunu kontrol ettir", "Sensörü değiştir; hortumları da birlikte kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2453",
+      "title": "Dizel partikül filtresi (DPF) basınç sensörü A ölçüm aralığı/performans",
+      "meaning": "DPF fark basınç sensörünün değeri mantıksız. Çoğu zaman sensöre giden hortumlar çatlamış ya da ters takılmıştır.",
+      "causes": ["Sensör hortumu çatlak, kopuk veya ters takılı", "Hortum içi kurumla tıkalı", "Sensör arızası", "DPF aşırı dolu"],
+      "actions": ["Sensör hortumlarını kontrol ettir", "Hortumlar sağlamsa sensörü değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P2463",
+      "title": "Dizel partikül filtresi (DPF) – kurum birikimi",
+      "meaning": "DPF içinde izin verilenden fazla kurum birikti. Temizlenmezse filtre tıkanır, araç güç kaybeder ve acil moda geçer.",
+      "causes": ["Çok kısa mesafe kullanım (filtre kendini temizleyemiyor)", "Yarım kalan rejenerasyonlar", "EGR veya enjektör sorunu nedeniyle fazla kurum", "Fark basınç sensörü hatası"],
+      "actions": ["Uygunsa 20–30 dakika otoyolda sabit devirde sür", "Gösterge DPF uyarısı veriyorsa servis rejenerasyonu yaptır", "Fazla kurum üreten başka arızalar varsa önce onları çöz"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P242F",
+      "title": "Dizel partikül filtresi (DPF) tıkanıklığı – kül birikimi",
+      "meaning": "DPF içinde yanmayan kül birikti. Kül rejenerasyonla temizlenmez; filtre ömrünün sonuna yaklaşıyor olabilir.",
+      "causes": ["Filtre ömrünü doldurmuş (yüksek kilometre)", "Uygun olmayan (yüksek küllü) motor yağı kullanımı", "Motorun yağ yakması"],
+      "actions": ["DPF'ye uygun (low SAPS) motor yağı kullan", "DPF'yi profesyonel olarak yıkat veya değiştir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "P20EE",
+      "title": "SCR (AdBlue) NOx katalizör verimi düşük – Bank 1",
+      "meaning": "AdBlue sistemli dizellerde, egzozdaki NOx gazını azaltan SCR katalizörü yeterince çalışmıyor. Uyarı sürerse araç bir süre sonra çalıştırılmaz hale gelebilir.",
+      "causes": ["Kalitesiz veya sulandırılmış AdBlue", "AdBlue dozaj enjektörü tıkalı", "NOx sensörü arızası", "SCR katalizörü yaşlanmış"],
+      "actions": ["Kaliteli (ISO 22241) AdBlue kullan", "Dozaj enjektörü ve NOx sensörlerini kontrol ettir", "Göstergede kalan km uyarısı varsa vakit kaybetmeden servise git"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "U0001",
+      "title": "Yüksek hızlı CAN haberleşme hattı arızası",
+      "meaning": "Araçtaki beyinlerin konuştuğu ana veri hattında (CAN) sorun var. Birçok uyarı lambası aynı anda yanabilir, araç çalışmayabilir.",
+      "causes": ["CAN kablo demetinde kopukluk veya kısa devre", "Bir beyin hattı kilitliyor", "Akü voltajı düşük", "Sonradan takılan aksesuar (alarm, takip cihazı) hattı bozuyor"],
+      "actions": ["Akü voltajını kontrol et", "Son zamanda takılan elektronik aksesuar varsa sökülmesini dene", "Elektrik arıza tespiti yapan bir servise götür"],
+      "severity": "high",
+      "drivable": false
+    },
+    {
+      "code": "U0101",
+      "title": "Şanzıman beyni (TCM) ile iletişim kesildi",
+      "meaning": "Motor beyni şanzıman beyniyle haberleşemiyor. Otomatik şanzıman acil moda geçip tek viteste kalabilir.",
+      "causes": ["Şanzıman beyni beslemesi veya sigortası", "CAN hattı kablo/soket sorunu", "Şanzıman beyni arızası", "Akü voltajı düşük"],
+      "actions": ["Akü voltajını kontrol et", "Şanzıman beyni sigortalarını kontrol ettir", "Acil modda kısa mesafe ve düşük hızla servise git"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "U0121",
+      "title": "ABS beyni ile iletişim kesildi",
+      "meaning": "Motor beyni ABS beyniyle haberleşemiyor. Frenler çalışır ama ABS ve ESP devre dışı kalabilir.",
+      "causes": ["ABS beyni sigortası atmış", "ABS soketi oksitlenmiş (tekerlek davlumbazına yakın, su alır)", "CAN hattı sorunu", "ABS beyni arızası"],
+      "actions": ["ABS lambası yanıyorsa ani frenlerde tekerlekler kilitlenebilir, mesafeni artır", "ABS sigortalarını ve soketini kontrol ettir"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "U0140",
+      "title": "Gövde kontrol modülü (BCM) ile iletişim kesildi",
+      "meaning": "Motor beyni gövde elektroniğini yöneten modülle haberleşemiyor. Farlar, silecekler, merkezi kilit gibi sistemler etkilenebilir.",
+      "causes": ["BCM sigortası veya beslemesi", "CAN hattı sorunu", "BCM'e su girmesi", "Akü voltajı düşük"],
+      "actions": ["Akü voltajını kontrol et", "BCM sigortalarını kontrol ettir", "Araç içine su alma izi var mı bak (paspas altı, torpido)"],
+      "severity": "medium",
+      "drivable": true
+    },
+    {
+      "code": "U0151",
+      "title": "Hava yastığı (airbag) beyni ile iletişim kesildi",
+      "meaning": "Motor beyni hava yastığı beyniyle haberleşemiyor. Kaza anında hava yastıkları açılmayabilir.",
+      "causes": ["Airbag beyni sigortası atmış", "Koltuk altı soketleri temassız", "CAN hattı sorunu", "Airbag beyni arızası"],
+      "actions": ["Airbag lambası yanıyorsa vakit kaybetmeden servise git", "Hava yastığı sistemine kendin müdahale etme"],
+      "severity": "high",
+      "drivable": true
+    },
+    {
+      "code": "U0155",
+      "title": "Gösterge paneli ile iletişim kesildi",
+      "meaning": "Motor beyni gösterge paneliyle haberleşemiyor. Göstergeler çalışmayabilir veya yanlış değer gösterebilir.",
+      "causes": ["Gösterge paneli sigortası", "Gösterge soketi temassız", "CAN hattı sorunu", "Gösterge paneli arızası"],
+      "actions": ["Gösterge sigortasını kontrol ettir", "Hız ve hararet göstergesi çalışmıyorsa sürüşte ekstra dikkatli ol"],
+      "severity": "medium",
+      "drivable": true
+    }
+  ]
+}
