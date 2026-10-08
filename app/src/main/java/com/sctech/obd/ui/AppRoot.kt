@@ -66,6 +66,8 @@ private enum class Tab(val route: String, @StringRes val label: Int, @DrawableRe
 }
 
 private const val ROUTE_ABOUT = "about"
+private const val ROUTE_CONNECT = "connect"
+private val FULL_SCREEN_ROUTES = setOf(ROUTE_ABOUT, ROUTE_CONNECT)
 
 @Composable
 fun ObdAppRoot(app: ObdApp) {
@@ -82,7 +84,7 @@ fun ObdAppRoot(app: ObdApp) {
     Scaffold(
         containerColor = Sct.colors.bg,
         topBar = { TopBar(app.prefs, onAbout = { nav.navigate(ROUTE_ABOUT) { launchSingleTop = true } }) },
-        bottomBar = { if (currentRoute != ROUTE_ABOUT) Column {
+        bottomBar = { if (currentRoute !in FULL_SCREEN_ROUTES) Column {
             HorizontalDivider(thickness = 1.dp, color = Sct.colors.hairline)
             NavigationBar(containerColor = Sct.colors.bg, tonalElevation = 0.dp) {
                 Tab.entries.forEach { tab ->
@@ -106,11 +108,16 @@ fun ObdAppRoot(app: ObdApp) {
     ) { padding ->
         NavHost(nav, startDestination = Tab.HOME.route, modifier = Modifier.padding(padding)) {
             composable(Tab.HOME.route) {
-                HomeScreen(app.prefs, onOpenTroubleCodes = { nav.switchTab(Tab.DTC.route) })
+                HomeScreen(
+                    app.prefs,
+                    onOpenWizard = { nav.navigate(ROUTE_CONNECT) { launchSingleTop = true } },
+                    onOpenTroubleCodes = { nav.switchTab(Tab.DTC.route) },
+                )
             }
             composable(Tab.DTC.route) { DtcScreen(app.dtcRepository) }
             composable(Tab.VEHICLE.route) { VehicleScreen() }
             composable(ROUTE_ABOUT) { AboutScreen(app.dtcRepository, onBack = { nav.popBackStack() }) }
+            composable(ROUTE_CONNECT) { ConnectWizard(app.prefs, onClose = { nav.popBackStack() }) }
         }
     }
 }

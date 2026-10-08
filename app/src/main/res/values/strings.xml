@@ -70,18 +70,76 @@
     <string name="unit_celsius">°C</string>
     <string name="unit_volt">V</string>
 
-    <!-- Device picker -->
-    <string name="picker_title">Adaptör seç</string>
+    <!-- Device lists -->
     <string name="picker_no_bluetooth">Bu cihazda Bluetooth yok.</string>
-    <string name="picker_permission_rationale">Eşleştirilmiş OBD adaptörünü bulup bağlanabilmek için \"Yakındaki cihazlar\" iznine ihtiyaç var.</string>
     <string name="picker_grant_permission">İzin ver</string>
-    <string name="picker_bluetooth_off">Bluetooth kapalı.</string>
-    <string name="picker_enable_bluetooth">Bluetooth\'u aç</string>
-    <string name="picker_no_paired">Eşleştirilmiş cihaz bulunamadı.</string>
+    <string name="picker_enable_bluetooth">Aç</string>
     <string name="picker_last_used">Son kullanılan</string>
-    <string name="picker_likely_obd">OBD adaptörü olabilir</string>
-    <string name="picker_pairing_hint">Adaptörün listede yok mu? Önce telefonun Bluetooth ayarlarından eşleştir. Adaptör adı genelde \"OBDII\", \"OBD2\" veya \"V-LINK\"; PIN genelde 1234 veya 0000.</string>
-    <string name="picker_open_settings">Bluetooth ayarlarını aç</string>
+    <string name="picker_likely_obd">OBD adaptörü</string>
+
+    <!-- Connection wizard -->
+    <string name="action_close">Kapat</string>
+    <string name="action_retry">Tekrar dene</string>
+    <string name="action_connect_to">Bağlan · %1$s</string>
+    <string name="action_other_adapter">Başka adaptör</string>
+    <string name="wizard_title">Adaptör bağlantısı</string>
+    <string name="wizard_step_of">%1$d / %2$d</string>
+    <string name="wizard_try_demo">Adaptörüm yok, demo ile dene</string>
+    <string name="wizard_open_settings">Ayarlar</string>
+    <string name="wizard_other_adapter">Başka adaptör seç</string>
+    <string name="wizard_tips">Kontrol et</string>
+
+    <string name="wizard_prepare_eyebrow">Hazırlık</string>
+    <string name="wizard_prepare_title">Adaptörü araca takın</string>
+    <string name="wizard_prepare_1">Adaptörü OBD soketine tak</string>
+    <string name="wizard_prepare_1_sub">Soket çoğu araçta direksiyonun altında, sol diz hizasındadır. 16 pinli, yamuk ağızlı bir sokettir.</string>
+    <string name="wizard_prepare_2">Kontağı aç</string>
+    <string name="wizard_prepare_2_sub">Motoru çalıştırmak şart değil; bazı araçlar yalnızca motor çalışırken yanıt verir.</string>
+    <string name="wizard_prepare_3">Adaptörün ışığını kontrol et</string>
+    <string name="wizard_prepare_3_sub">Adaptör üzerindeki ışık yanıyorsa enerji alıyordur.</string>
+    <string name="wizard_prepare_ready">Taktım, devam</string>
+
+    <string name="wizard_bt_eyebrow">Telefon</string>
+    <string name="wizard_bt_title">Bluetooth hazırlığı</string>
+    <string name="wizard_bt_permission">Yakındaki cihazlar izni</string>
+    <string name="wizard_bt_permission_sub">Adaptörü bulup bağlanmak için gerekli</string>
+    <string name="wizard_bt_on">Bluetooth</string>
+    <string name="wizard_bt_on_sub">Telefonun Bluetooth\'u açık olmalı</string>
+
+    <string name="wizard_select_eyebrow">Adaptör</string>
+    <string name="wizard_select_title">Adaptörünüzü seçin</string>
+    <string name="wizard_select_hint">ELM327 adaptörlerin adı genelde \"OBDII\", \"OBD2\", \"V-LINK\" veya \"Vgate\" olur.</string>
+    <string name="wizard_paired">Eşleştirilmiş</string>
+    <string name="wizard_paired_empty">Henüz eşleştirilmiş cihaz yok. Adaptörünüz aşağıdaki listede görünecek.</string>
+    <string name="wizard_nearby">Yakındaki cihazlar</string>
+    <string name="wizard_scan_again">Tekrar tara</string>
+    <string name="wizard_scanning">Taranıyor…</string>
+    <string name="wizard_nearby_empty">Yakında yeni cihaz bulunamadı. Adaptörün takılı ve kontağın açık olduğundan emin olup tekrar tarayın.</string>
+    <string name="wizard_pair_pin">Eşleştirme isteniyor. PIN sorulursa 1234 (olmazsa 0000) girin.</string>
+    <string name="wizard_pair_failed">Eşleştirme tamamlanamadı. PIN\'i 1234 veya 0000 olarak tekrar deneyin.</string>
+
+    <string name="wizard_connect_eyebrow">Bağlantı</string>
+    <string name="wizard_connect_title">Bağlanılıyor</string>
+    <string name="wizard_row_link">Adaptöre bağlanılıyor</string>
+    <string name="wizard_row_link_sub">Bluetooth bağlantısı</string>
+    <string name="wizard_row_init">Adaptör hazırlanıyor</string>
+    <string name="wizard_row_init_sub">ELM327 sıfırlama ve ayarlar</string>
+    <string name="wizard_row_search">Araç beyni aranıyor</string>
+    <string name="wizard_row_search_sub">OBD protokolü ve beyin tespiti</string>
+    <string name="wizard_slow_search">Bu adım normalden uzun sürüyor. Kontağın açık olduğundan emin olun; ilk bağlantıda 30 saniyeyi bulabilir.</string>
+    <string name="wizard_done_title">Araç hazır</string>
+    <string name="wizard_done_sub">Bağlantı kuruldu, veriler okunabilir.</string>
+    <string name="wizard_done_action">Başla</string>
+
+    <string name="wizard_tip_light">Adaptörün ışığı yanıyor mu? Yanmıyorsa soketi veya çakmak sigortasını kontrol edin.</string>
+    <string name="wizard_tip_other_app">Başka bir OBD uygulaması adaptöre bağlı olabilir; kapatın.</string>
+    <string name="wizard_tip_replug">Adaptörü çıkarıp 5 saniye sonra tekrar takın.</string>
+    <string name="wizard_tip_pairing">Sorun sürerse telefonun Bluetooth ayarlarından adaptörü \"unutup\" yeniden eşleştirin.</string>
+    <string name="wizard_no_ecu_title">Araç yanıt vermiyor</string>
+    <string name="wizard_tip_ignition">Kontak açık mı? Anahtar ikinci konumda olmalı veya start butonuna fren basmadan bir kez basılmalı.</string>
+    <string name="wizard_tip_engine_running">Bazı araçlar yalnızca motor çalışırken yanıt verir; motoru çalıştırıp tekrar deneyin.</string>
+    <string name="wizard_tip_socket">Adaptörün sokete tam oturduğundan emin olun.</string>
+    <string name="wizard_tip_clone">Çok ucuz \"v2.1\" klon adaptörler bazı araçlarla çalışmaz; v1.5 çipli bir adaptör deneyin.</string>
 
     <!-- Trouble codes -->
     <string name="eyebrow_trouble_codes">Arıza kodları</string>

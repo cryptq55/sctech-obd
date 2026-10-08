@@ -39,7 +39,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.ui.platform.LocalContext
 import com.sctech.obd.R
+import com.sctech.obd.bt.Connector
 import com.sctech.obd.core.ConnectionState
 import com.sctech.obd.core.EcuState
 import com.sctech.obd.core.FailureReason
@@ -73,11 +75,13 @@ private val GAUGES = listOf(
 )
 
 @Composable
-fun HomeScreen(prefs: AppPrefs, onOpenTroubleCodes: () -> Unit) {
+fun HomeScreen(prefs: AppPrefs, onOpenWizard: () -> Unit, onOpenTroubleCodes: () -> Unit) {
+    val context = LocalContext.current
     val connection by ObdSession.connection.collectAsStateWithLifecycle()
     val ecu by ObdSession.ecuState.collectAsStateWithLifecycle()
     val live by ObdSession.liveData.collectAsStateWithLifecycle()
-    var showPicker by remember { mutableStateOf(false) }
+    // Re-evaluated whenever the link changes, so a fresh pairing shows up right away
+    val lastDevice = remember(connection) { Connector.lastDevice(context, prefs) }
 
     // Dashboard is visible -> poll the MVP values (applied once the ECU is ready)
     LaunchedEffect(Unit) { ObdSession.startLiveData(Pids.DASHBOARD) }
@@ -92,7 +96,9 @@ fun HomeScreen(prefs: AppPrefs, onOpenTroubleCodes: () -> Unit) {
         ConnectionPanel(
             connection = connection,
             ecu = ecu,
-            onConnect = { showPicker = true },
+            lastDeviceName = lastDevice?.let { Connector.displayName(it) },
+            onQuickConnect = { lastDevice?.let { Connector.connect(context, prefs, it) } },
+            onOpenWizard = onOpenWizard,
             onDemo = { ObdSession.startDemo() },
             onDisconnect = { ObdSession.disconnect() },
         )
@@ -110,17 +116,15 @@ fun HomeScreen(prefs: AppPrefs, onOpenTroubleCodes: () -> Unit) {
             }
         }
     }
-
-    if (showPicker) {
-        DevicePickerDialog(prefs = prefs, onDismiss = { showPicker = false })
-    }
 }
 
 @Composable
 private fun ConnectionPanel(
     connection: ConnectionState,
     ecu: EcuState,
-    onConnect: () -> Unit,
+    lastDeviceName: String?,
+    onQuickConnect: () -> Unit,
+    onOpenWizard: () -> Unit,
     onDemo: () -> Unit,
     onDisconnect: () -> Unit,
 ) {
@@ -171,14 +175,38 @@ private fun ConnectionPanel(
 
         when (connection) {
             ConnectionState.Disconnected, is ConnectionState.Failed -> {
-                PrimaryButton(stringResource(R.string.action_connect), R.drawable.ic_link, onClick = onConnect)
-                Spacer(Modifier.height(10.dp))
-                SecondaryButton(
-                    stringResource(R.string.action_demo),
-                    R.drawable.ic_play,
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = onDemo,
-                )
+                if (lastDeviceName != null) {
+                    // Known adapter: one tap, the wizard is one step away
+                    PrimaryButton(
+                        stringResource(R.string.action_connect_to, lastDeviceName),
+                        R.drawable.ic_link,
+                        onClick = onQuickConnect,
+                    )
+                    Spacer(Modifier.height(10.dp))
+                    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        SecondaryButton(
+                            stringResource(R.string.action_other_adapter),
+                            R.drawable.ic_bluetooth,
+                            modifier = Modifier.weight(1f),
+                            onClick = onOpenWizard,
+                        )
+                        SecondaryButton(
+                            stringResource(R.string.action_demo),
+                            R.drawable.ic_play,
+                            modifier = Modifier.weight(1f),
+                            onClick = onDemo,
+                        )
+                    }
+                } else {
+                    PrimaryButton(stringResource(R.string.action_connect), R.drawable.ic_link, onClick = onOpenWizard)
+                    Spacer(Modifier.height(10.dp))
+                    SecondaryButton(
+                        stringResource(R.string.action_demo),
+                        R.drawable.ic_play,
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = onDemo,
+                    )
+                }
                 Spacer(Modifier.height(12.dp))
                 Hint(
                     stringResource(
