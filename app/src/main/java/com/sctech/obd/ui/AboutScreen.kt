@@ -37,6 +37,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.sctech.obd.ObdApp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sctech.obd.ui.theme.Sct
 
 /** Debug builds only: lets us see the app as a user without Pro. */
@@ -112,6 +113,13 @@ fun AboutScreen(app: ObdApp, onBack: () -> Unit) {
             InfoRow(stringResource(R.string.about_version), "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})")
             InfoRow(stringResource(R.string.about_dtc_db), stringResource(R.string.about_dtc_db_count, repository.size))
             InfoRow(stringResource(R.string.about_adapters), "ELM327 · Bluetooth")
+            val licensedKey by app.proAccess.licensedKey.collectAsStateWithLifecycle()
+            InfoRow(
+                stringResource(R.string.about_license),
+                licensedKey ?: stringResource(R.string.about_license_none),
+                valueColor = if (licensedKey != null) c.success else c.textSecondary,
+            )
+            InfoRow(stringResource(R.string.about_device_code), app.proAccess.deviceCode())
         }
 
         Panel {

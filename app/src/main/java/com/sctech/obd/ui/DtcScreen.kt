@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.ui.draw.clip
 import com.sctech.obd.data.DtcCategory
+import com.sctech.obd.expertiz.ExpertizAnalyzer
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -111,8 +112,9 @@ fun DtcScreen(repository: DtcRepository) {
             }
         }
 
+        val clearedCodes = ExpertizAnalyzer.clearedButUnresolved(state.codes).map { it.code }.toSet()
         items(state.codes, key = { it.code + it.kind }) { code ->
-            DtcCard(code, repository.find(code.code))
+            DtcCard(code, repository.find(code.code), clearedButUnresolved = code.kind == DtcKind.PERMANENT && code.code in clearedCodes)
         }
 
         if (finished && state.codes.isNotEmpty()) {
@@ -177,7 +179,7 @@ private fun KindBreakdown(codes: List<TroubleCode>) {
 }
 
 @Composable
-private fun DtcCard(code: TroubleCode, info: DtcInfo?) {
+private fun DtcCard(code: TroubleCode, info: DtcInfo?, clearedButUnresolved: Boolean) {
     val c = Sct.colors
     var expanded by rememberSaveable(code.code, code.kind) { mutableStateOf(false) }
     val chevron by animateFloatAsState(if (expanded) 180f else 0f, label = "chevron")
@@ -208,6 +210,10 @@ private fun DtcCard(code: TroubleCode, info: DtcInfo?) {
             fontWeight = FontWeight.SemiBold,
             lineHeight = 20.sp,
         )
+        if (clearedButUnresolved) {
+            Spacer(Modifier.height(6.dp))
+            Text(stringResource(R.string.dtc_cleared_unresolved), color = c.danger, fontSize = 12.sp, lineHeight = 17.sp, fontWeight = FontWeight.SemiBold)
+        }
 
         if (info == null) {
             Spacer(Modifier.height(6.dp))

@@ -53,6 +53,17 @@ import com.sctech.obd.expertiz.ExpertizController
 import com.sctech.obd.expertiz.ExpertizReport
 import com.sctech.obd.expertiz.Finding
 import com.sctech.obd.expertiz.SectionId
+import com.sctech.obd.license.SctLicense
+import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.input.OffsetMapping
+import androidx.compose.ui.text.input.TransformedText
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
 import com.sctech.obd.ui.theme.Sct
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -72,7 +83,7 @@ fun ExpertizScreen(app: ObdApp) {
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         if (!isPro) {
-            item { ProUpsell() }
+            item { ProUpsell(app) }
             return@LazyColumn
         }
         when (val s = state) {
@@ -114,7 +125,7 @@ fun ExpertizScreen(app: ObdApp) {
 // ───────────────────────────────────────────────────────── upsell / intro / progress
 
 @Composable
-private fun ProUpsell() {
+private fun ProUpsell(app: ObdApp) {
     val c = Sct.colors
     Panel(borderColor = c.accent.copy(alpha = 0.35f)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -135,17 +146,117 @@ private fun ProUpsell() {
                 stringResource(R.string.exp_check_odometer),
             )
         )
+        Spacer(Modifier.height(18.dp))
+        HorizontalDivider(thickness = 1.dp, color = c.hairline)
         Spacer(Modifier.height(16.dp))
-        // TODO: launch the one-time purchase flow once billing is in place
-        PrimaryButton(stringResource(R.string.exp_upsell_buy), R.drawable.ic_check, enabled = false, onClick = {})
-        Spacer(Modifier.height(8.dp))
-        Text(
-            stringResource(R.string.exp_upsell_note),
-            color = c.textTertiary,
-            fontSize = 12.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+        LicenseActivation(app)
+    }
+}
+
+/** Shows "2er3m2adzqmm" as "2ER3-M2AD-ZQMM" (the "SCT-" part is the field prefix). */
+private object LicenseKeyTransformation : VisualTransformation {
+    override fun filter(text: AnnotatedString): TransformedText {
+        val raw = text.text
+        // A pasted full key may still start with SCT; hide it behind the prefix
+        val skip = if (raw.length > 12 && raw.startsWith("SCT", ignoreCase = true)) 3 else 0
+        val body = raw.drop(skip).uppercase()
+        val out = body.chunked(4).joinToString("-")
+        val mapping = object : OffsetMapping {
+            override fun originalToTransformed(offset: Int): Int {
+                val o = (offset - skip).coerceIn(0, body.length)
+                return o + (if (o > 4) 1 else 0) + (if (o > 8) 1 else 0)
+            }
+
+            override fun transformedToOriginal(offset: Int): Int {
+                val t = offset - (if (offset > 4) 1 else 0) - (if (offset > 9) 1 else 0)
+                return (t + skip).coerceIn(0, raw.length)
+            }
+        }
+        return TransformedText(AnnotatedString(out), mapping)
+    }
+}
+
+/** SCT-XXXX-XXXX-XXXX entry, same flow as the SCTech FCC app. */
+@Composable
+private fun LicenseActivation(app: ObdApp) {
+    val c = Sct.colors
+    val scope = rememberCoroutineScope()
+    var field by remember { mutableStateOf(TextFieldValue("")) }
+    var busy by remember { mutableStateOf(false) }
+    var error by remember { mutableStateOf<Int?>(null) }
+    val key = SctLicense.normalizeKey(field.text)
+
+    Eyebrow(stringResource(R.string.lic_eyebrow))
+    Spacer(Modifier.height(8.dp))
+    OutlinedTextField(
+        value = field,
+        onValueChange = {
+            // Only drop characters that can't be part of a key; rewriting the text while the
+            // keyboard is composing loses input. Dashes and capitals are display-only.
+            val chars = it.text.filter { ch -> ch.isLetterOrDigit() }
+            val clean = chars.take(if (chars.startsWith("SCT", ignoreCase = true)) 15 else 12)
+            field = if (clean == it.text) it else TextFieldValue(clean, TextRange(clean.length))
+            error = null
+        },
+        visualTransformation = LicenseKeyTransformation,
+        prefix = { Text("SCT-", color = c.textSecondary, fontFamily = FontFamily.Monospace) },
+        placeholder = { Text("XXXX-XXXX-XXXX", fontFamily = FontFamily.Monospace, color = c.textTertiary) },
+        singleLine = true,
+        enabled = !busy,
+        isError = error != null,
+        // No suggestions/autocorrect: keys are random characters
+        keyboardOptions = KeyboardOptions(
+            capitalization = KeyboardCapitalization.Characters,
+            autoCorrectEnabled = false,
+            keyboardType = KeyboardType.Ascii,
+        ),
+        textStyle = androidx.compose.ui.text.TextStyle(fontFamily = FontFamily.Monospace, fontSize = 17.sp, letterSpacing = 1.sp, color = c.textPrimary),
+        shape = RoundedCornerShape(12.dp),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = c.accent,
+            unfocusedBorderColor = c.hairline,
+            errorBorderColor = c.danger,
+            cursorColor = c.accent,
+        ),
+        modifier = Modifier.fillMaxWidth(),
+    )
+    error?.let {
+        Spacer(Modifier.height(6.dp))
+        Text(stringResource(it), color = c.danger, fontSize = 12.sp, lineHeight = 17.sp)
+    }
+    Spacer(Modifier.height(12.dp))
+    if (busy) {
+        ProgressLine(stringResource(R.string.lic_activating))
+    } else {
+        PrimaryButton(
+            stringResource(R.string.lic_activate),
+            R.drawable.ic_check,
+            enabled = key != null,
+            onClick = {
+                val k = key ?: return@PrimaryButton
+                busy = true
+                scope.launch {
+                    val result = app.proAccess.activate(k)
+                    busy = false
+                    error = when (result) {
+                        SctLicense.Result.Success -> null
+                        SctLicense.Result.Invalid -> R.string.lic_err_invalid
+                        SctLicense.Result.InUse -> R.string.lic_err_in_use
+                        SctLicense.Result.Revoked -> R.string.lic_err_revoked
+                        SctLicense.Result.NoInternet -> R.string.lic_err_no_internet
+                        SctLicense.Result.ServerError -> R.string.lic_err_server
+                    }
+                }
+            },
         )
     }
+    Spacer(Modifier.height(10.dp))
+    Text(
+        stringResource(R.string.lic_note, app.proAccess.deviceCode()),
+        color = c.textTertiary,
+        fontSize = 12.sp,
+        lineHeight = 17.sp,
+    )
 }
 
 @Composable

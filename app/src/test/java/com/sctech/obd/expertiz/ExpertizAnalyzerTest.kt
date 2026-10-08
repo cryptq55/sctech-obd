@@ -111,6 +111,23 @@ class ExpertizAnalyzerTest {
     }
 
     @Test
+    fun permanentWithoutStoredMeansClearedButUnresolved() {
+        val codes = listOf(
+            TroubleCode("P0420", "Catalyst", DtcKind.PERMANENT), // cleared, still permanent
+            TroubleCode("P0171", "Lean", DtcKind.STORED),
+            TroubleCode("P0171", "Lean", DtcKind.PERMANENT),     // stored too: not hidden
+        )
+        assertEquals(listOf("P0420"), ExpertizAnalyzer.clearedButUnresolved(codes).map { it.code })
+
+        // Even with an old clear by the counters, the lingering code is hard evidence
+        val report = ExpertizAnalyzer.analyze(data(distance = 20_000.0, codes = codes), noInfo)
+        val cleared = section(report, SectionId.CLEARED_CODES)
+        assertEquals(CheckStatus.FAIL, cleared.status)
+        assertTrue(cleared.findings.any { it.label == "P0420" })
+        assertFalse(cleared.summary.contains("Akü"))
+    }
+
+    @Test
     fun distanceFormatting() {
         assertEquals("1.250 km", ExpertizAnalyzer.km(1_250.0))
         assertTrue(ExpertizAnalyzer.km(65_535.0).contains("fazla"))

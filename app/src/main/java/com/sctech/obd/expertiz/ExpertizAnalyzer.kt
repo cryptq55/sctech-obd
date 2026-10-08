@@ -75,7 +75,7 @@ object ExpertizAnalyzer {
 
     fun analyze(data: ExpertizData, explain: (String) -> DtcInfo?): ExpertizReport {
         val sections = listOf(
-            clearedCodes(data),
+            clearedCodes(data, explain),
             troubleCodes(data, explain),
             readiness(data),
             identity(data),
@@ -99,9 +99,23 @@ object ExpertizAnalyzer {
         return ExpertizReport(verdict, headline, summary, sections, data.vin, data.createdAt, data.demo)
     }
 
-    private fun clearedCodes(d: ExpertizData): CheckSection {
+    /**
+     * Permanent DTCs that are no longer stored: the stored code was cleared with a scan
+     * tool, but the ECU has not yet confirmed the fault is fixed. The closest OBD gets to
+     * "showing deleted codes" — cleared stored/pending codes themselves are gone for good.
+     */
+    fun clearedButUnresolved(codes: List<TroubleCode>): List<TroubleCode> {
+        val stored = codes.filter { it.kind == DtcKind.STORED }.map { it.code }.toSet()
+        return codes.filter { it.kind == DtcKind.PERMANENT && it.code !in stored }.distinctBy { it.code }
+    }
+
+    private fun clearedCodes(d: ExpertizData, explain: (String) -> DtcInfo?): CheckSection {
         val incomplete = d.monitors.count { !it.complete }
         val findings = mutableListOf<Finding>()
+        val unresolved = clearedButUnresolved(d.codes)
+        unresolved.forEach { code ->
+            findings += Finding(code.code, explain(code.code)?.title ?: code.libraryDescription, CheckStatus.FAIL)
+        }
         d.distanceSinceClearKm?.let { findings += Finding("Silmeden beri gidilen yol", km(it)) }
         d.timeSinceClearHours?.let { findings += Finding("Silmeden beri motor çalışma süresi", hours(it)) }
         d.warmupsSinceClear?.let { findings += Finding("Silmeden beri ısınma sayısı", it.toString()) }
@@ -140,18 +154,28 @@ object ExpertizAnalyzer {
                 status = if (incomplete >= SUSPICIOUS_INCOMPLETE_MONITORS) CheckStatus.WARN else CheckStatus.PASS
                 summary = "Araç silme sayaçlarını paylaşmıyor; değerlendirme emisyon testlerine göre yapıldı."
             }
+            unresolved.isNotEmpty() -> {
+                status = CheckStatus.FAIL
+                summary = ""
+            }
             else -> return CheckSection(
                 SectionId.CLEARED_CODES, "Silinmiş kod kontrolü", CheckStatus.NO_DATA,
                 "Araç bu kontrol için gerekli bilgiyi paylaşmıyor.", findings,
             )
         }
-        // Counters can look fine while several monitors are still incomplete
-        if (status == CheckStatus.PASS && incomplete >= SUSPICIOUS_INCOMPLETE_MONITORS) {
+        // Hard evidence beats counters: a code was cleared but the ECU still holds it
+        if (unresolved.isNotEmpty()) {
+            status = CheckStatus.FAIL
+            summary = "Silinmiş ama giderilmemiş ${unresolved.size} arıza bulundu. Bu kodlar teşhis cihazıyla silinmiş, " +
+                "ancak araç beyni arızanın düzeldiğini henüz doğrulamadığı için kalıcı hafızada duruyor."
+        } else if (status == CheckStatus.PASS && incomplete >= SUSPICIOUS_INCOMPLETE_MONITORS) {
+            // Counters can look fine while several monitors are still incomplete
             status = CheckStatus.WARN
             summary = "Sayaçlar eski bir silmeyi gösteriyor, ancak $incomplete emisyon testi tamamlanmamış. " +
                 "Testler yakın zamanda sıfırlanmış olabilir."
         }
-        if (status != CheckStatus.PASS) {
+        // A battery swap explains reset counters, but never a lingering permanent code
+        if (status != CheckStatus.PASS && unresolved.isEmpty()) {
             summary += " Akü sökülmesi veya değişimi de bu sayaçları sıfırlar; satıcıya sorun."
         }
         return CheckSection(SectionId.CLEARED_CODES, "Silinmiş kod kontrolü", status, summary, findings)
@@ -186,7 +210,9 @@ object ExpertizAnalyzer {
             d.codes.isEmpty() && d.milOn != true -> "Kayıtlı, bekleyen veya kalıcı arıza kodu yok."
             else -> buildString {
                 append("$stored kayıtlı, $pending bekleyen, $permanent kalıcı kod.")
-                if (permanent > 0) append(" Kalıcı kodlar silinemez; arızanın gerçekten giderildiğini kanıtlamak için sürüş testi gerekir.")
+                val cleared = clearedButUnresolved(d.codes).size
+                if (cleared > 0) append(" $cleared kod silinmiş ama kalıcı hafızada duruyor (silinmiş kod kontrolüne bakın).")
+                else if (permanent > 0) append(" Kalıcı kodlar silinemez; arızanın gerçekten giderildiğini kanıtlamak için sürüş testi gerekir.")
                 if (severe.isNotEmpty()) append(" ${severe.size} kod yüksek önemde.")
             }
         }
