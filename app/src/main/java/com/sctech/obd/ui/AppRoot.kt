@@ -62,6 +62,7 @@ import com.sctech.obd.ui.theme.Sct
 private enum class Tab(val route: String, @StringRes val label: Int, @DrawableRes val icon: Int) {
     HOME("home", R.string.tab_home, R.drawable.ic_home),
     DTC("dtc", R.string.tab_dtc, R.drawable.ic_warning),
+    EXPERTIZ("expertiz", R.string.tab_expertiz, R.drawable.ic_assignment),
     VEHICLE("vehicle", R.string.tab_vehicle, R.drawable.ic_car),
 }
 
@@ -115,8 +116,9 @@ fun ObdAppRoot(app: ObdApp) {
                 )
             }
             composable(Tab.DTC.route) { DtcScreen(app.dtcRepository) }
+            composable(Tab.EXPERTIZ.route) { ExpertizScreen(app) }
             composable(Tab.VEHICLE.route) { VehicleScreen() }
-            composable(ROUTE_ABOUT) { AboutScreen(app.dtcRepository, onBack = { nav.popBackStack() }) }
+            composable(ROUTE_ABOUT) { AboutScreen(app, onBack = { nav.popBackStack() }) }
             composable(ROUTE_CONNECT) { ConnectWizard(app.prefs, onClose = { nav.popBackStack() }) }
         }
     }

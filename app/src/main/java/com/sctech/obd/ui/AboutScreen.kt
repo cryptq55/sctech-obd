@@ -30,14 +30,51 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sctech.obd.BuildConfig
 import com.sctech.obd.R
-import com.sctech.obd.data.DtcRepository
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import com.sctech.obd.ObdApp
 import com.sctech.obd.ui.theme.Sct
+
+/** Debug builds only: lets us see the app as a user without Pro. */
+@Composable
+private fun DeveloperPanel(app: ObdApp) {
+    val c = Sct.colors
+    var locked by remember { mutableStateOf(app.proAccess.debugLocked) }
+    Panel(borderColor = c.warning.copy(alpha = 0.4f)) {
+        Eyebrow(stringResource(R.string.about_developer), color = c.warning)
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 6.dp)) {
+            Column(Modifier.weight(1f)) {
+                Text(stringResource(R.string.about_dev_lock_pro), color = c.textPrimary, fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.about_dev_lock_pro_sub), color = c.textSecondary, fontSize = 12.sp)
+            }
+            Switch(
+                checked = locked,
+                onCheckedChange = {
+                    locked = it
+                    app.proAccess.debugLocked = it
+                },
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = c.onAccent,
+                    checkedTrackColor = c.accent,
+                    uncheckedThumbColor = c.textSecondary,
+                    uncheckedTrackColor = c.surface2,
+                    uncheckedBorderColor = c.hairline,
+                ),
+            )
+        }
+    }
+}
 
 private const val ANDROBD_URL = "https://github.com/fr3ts0n/AndrOBD"
 private const val GPL_URL = "https://www.gnu.org/licenses/gpl-3.0.html"
 
 @Composable
-fun AboutScreen(repository: DtcRepository, onBack: () -> Unit) {
+fun AboutScreen(app: ObdApp, onBack: () -> Unit) {
+    val repository = app.dtcRepository
     val c = Sct.colors
     val context = LocalContext.current
     val open: (String) -> Unit = { url ->
@@ -103,6 +140,8 @@ fun AboutScreen(repository: DtcRepository, onBack: () -> Unit) {
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.about_database_body), color = c.textSecondary, fontSize = 13.sp, lineHeight = 19.sp)
         }
+
+        if (BuildConfig.DEBUG) DeveloperPanel(app)
 
         Disclaimer(Modifier.padding(horizontal = 4.dp))
         Spacer(Modifier.width(1.dp).height(8.dp))

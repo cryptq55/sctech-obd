@@ -7,6 +7,7 @@
     <string name="tab_home">Ana Sayfa</string>
     <string name="tab_dtc">Arızalar</string>
     <string name="tab_vehicle">Araç</string>
+    <string name="tab_expertiz">Ekspertiz</string>
     <string name="theme_title">Görünüm</string>
     <string name="theme_system">Sistem ayarı</string>
     <string name="theme_light">Gündüz (açık)</string>
@@ -205,6 +206,49 @@
     <string name="about_gpl">GPL-3.0 lisans metni</string>
     <string name="about_database">Arıza kodu açıklamaları</string>
     <string name="about_database_body">Türkçe arıza kodu açıklamaları SCTech tarafından hazırlanmıştır ve CC BY-SA 4.0 lisansı ile paylaşılmaktadır.</string>
+
+    <string name="about_developer">Geliştirici</string>
+    <string name="about_dev_lock_pro">Pro kilidini test et</string>
+    <string name="about_dev_lock_pro_sub">Uygulamayı Pro satın almamış kullanıcı gibi gösterir. Sadece geliştirme sürümünde görünür.</string>
+
+    <!-- Expertiz (Pro) -->
+    <string name="exp_eyebrow">İkinci el ekspertiz</string>
+    <string name="exp_upsell_title">Satın almadan önce aracı kontrol edin</string>
+    <string name="exp_upsell_body">Ekspertiz modu, aracın beyninde kalan izleri okuyarak satıcının söylemediklerini ortaya çıkarır.</string>
+    <string name="exp_upsell_buy">Pro\'ya geç · yakında</string>
+    <string name="exp_upsell_note">Tek seferlik ödeme · abonelik yok</string>
+    <string name="exp_intro_title">Satın almadan önce aracı kontrol edin</string>
+    <string name="exp_intro_body">Aracın beynindeki kayıtları okur ve satıcının söylemediklerini ortaya çıkarır. Yaklaşık 30 saniye sürer.</string>
+    <string name="exp_intro_hint">Kontak açık olsun; mümkünse motor rölantide çalışsın. Kontrol boyunca araçla oynamayın.</string>
+    <string name="exp_check_cleared">Arıza kodları yakın zamanda silinmiş mi?</string>
+    <string name="exp_check_codes">Kayıtlı, bekleyen ve kalıcı arıza kodları</string>
+    <string name="exp_check_readiness">Emisyon testlerinin durumu (muayeneye hazırlık)</string>
+    <string name="exp_check_vin">Beyindeki şasi numarası ruhsatla aynı mı?</string>
+    <string name="exp_check_odometer">Beyindeki kilometre (destekleyen araçlarda)</string>
+    <string name="exp_start">Ekspertizi başlat</string>
+    <string name="exp_run_again">Ekspertizi tekrarla</string>
+    <string name="exp_running_title">Ekspertiz yapılıyor</string>
+    <string name="exp_running_hint">Kontağı kapatmayın ve uygulamadan çıkmayın.</string>
+    <string name="exp_step_counters">Emisyon testleri ve sayaçlar</string>
+    <string name="exp_step_counters_sub">Kod silme izleri aranıyor</string>
+    <string name="exp_step_codes">Arıza kodları</string>
+    <string name="exp_step_codes_sub">Kayıtlı, bekleyen ve kalıcı</string>
+    <string name="exp_step_identity">Araç kimliği</string>
+    <string name="exp_step_identity_sub">Şasi numarası okunuyor</string>
+    <string name="exp_step_analysis">Değerlendirme</string>
+    <string name="exp_step_analysis_sub">Rapor hazırlanıyor</string>
+    <string name="exp_not_ready">Araç bağlı değil</string>
+    <string name="exp_demo_notice">Demo verisiyle yapıldı. Değerler sanal araçtan geldiği için sonuç gerçek bir aracı yansıtmaz.</string>
+    <string name="exp_result">Sonuç</string>
+    <string name="exp_status_pass">GEÇTİ</string>
+    <string name="exp_status_warn">DİKKAT</string>
+    <string name="exp_status_fail">SORUN</string>
+    <string name="exp_status_info">BİLGİ</string>
+    <string name="exp_status_no_data">VERİ YOK</string>
+    <string name="exp_vin_input">Ruhsattaki şasi numarası</string>
+    <string name="exp_vin_match">Ruhsattaki şasi numarasıyla eşleşiyor</string>
+    <string name="exp_vin_mismatch">Eşleşmiyor! Beyin değiştirilmiş veya yanlış girilmiş olabilir.</string>
+    <string name="exp_disclaimer">OBD ekspertizi yalnızca aracın elektronik kayıtlarını değerlendirir; kaporta, boya, şasi ve mekanik ekspertizin yerini tutmaz.</string>
 
     <!-- Notification -->
     <string name="notif_channel_name">Araç bağlantısı</string>

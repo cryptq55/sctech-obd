@@ -474,7 +474,7 @@ private fun DeviceRow(device: BluetoothDevice, tag: String?, busy: Boolean, onCl
 
 // ───────────────────────────────────────────────────────────── step 4
 
-private enum class RowState { PENDING, ACTIVE, DONE, FAILED }
+internal enum class RowState { PENDING, ACTIVE, DONE, FAILED }
 
 @Composable
 private fun ConnectStep(onRetry: () -> Unit, onOtherAdapter: () -> Unit, onDone: () -> Unit) {
@@ -600,7 +600,7 @@ private fun TroubleshootPanel(title: String, tips: List<String>, onRetry: () -> 
 }
 
 @Composable
-private fun ProgressRow(state: RowState, title: Int, subtitle: Int) {
+internal fun ProgressRow(state: RowState, title: Int, subtitle: Int) {
     val c = Sct.colors
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 10.dp)) {
         StateIcon(state)
@@ -618,7 +618,7 @@ private fun ProgressRow(state: RowState, title: Int, subtitle: Int) {
 }
 
 @Composable
-private fun StateIcon(state: RowState) {
+internal fun StateIcon(state: RowState) {
     val c = Sct.colors
     Box(contentAlignment = Alignment.Center, modifier = Modifier.size(28.dp)) {
         when (state) {
@@ -648,6 +648,6 @@ private fun FilledCircleIcon(@DrawableRes icon: Int, color: Color) {
 }
 
 @Composable
-private fun StepTitle(text: String) {
+internal fun StepTitle(text: String) {
     Text(text, color = Sct.colors.textPrimary, fontSize = 24.sp, fontWeight = FontWeight.Black, lineHeight = 28.sp)
 }
