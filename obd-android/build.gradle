@@ -1,0 +1,25 @@
+// Android baglanti katmani: AndrOBD :library protokolunu Kotlin Flow API ile sarar.
+apply plugin: 'com.android.library'
+
+android {
+    namespace = 'com.sctech.obd.core'
+    compileSdk 37
+
+    defaultConfig {
+        minSdk 26
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    api project(':library')
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+}

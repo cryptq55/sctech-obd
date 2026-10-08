@@ -7,3 +7,6 @@ pluginManagement {
 }
 include ':androbd', ':library', ':plugin'
 
+// Kotlin + Compose uygulama (AndrOBD tabanli)
+include ':obd-android', ':app'
+
